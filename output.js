@@ -1,4 +1,546 @@
-//Thu Aug 08 2024 04:42:41 GMT+0000 (Coordinated Universal Time)
+//Sun Aug 11 2024 06:18:17 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-/** Code Encryption Block[419fd178b7a37c9eae7b7426c4a04203dac35d5f960574f012927292af08e94d5b5f748ed63e3b8636080b955c044af4641687cf91adc5b45771e97de417deb2d179d9391aedfc6937db35252ccb4ff38a16784d6927af72c1b483ea13daab8970b57d99f4038753b711504a3cc6101a944b5e8aa064f52dceae681afa6b8c70be9aa7342c1dc8bf8eabbe8edc4304d78565c057cf520575e46d9fccdd221c885c73c85423565e5779fda528dbad2c89408f52b1a419102ca19177af33085de5c439420ecadb99d7c5138aca2cf217c7ea0e7ff786946530f8599bb945837d7e08ee20c88dbeec85251ad943318c58660692469db6d4d8ee4efac7fd12aad2d729a53f60752dc024a468eaba4751ff7008c94e79ea4411af60ea98217776be9c44a12a264dab27c8a274ae5619180a11c4de643b1b4dc6d65ea7d53fc4a099c9285b5275ea8073e3053d00cb5a3cd67947d52f8b9d769c5c7e5c716b77f13b81bcc57a89b9618cef11b0e3bbbc6b2da345b39a4eae30cdbca5f9e8a1641453b2cba8707022133c90811f7d6205ed1dae351d14b93e09a88f08c5de1036a073b855a6f19ddbb44961e59edcd0c06a14e81857c88881e2f9c3d016a4fb8cd6a4a90ea56736307a996ac641e8040989ed4edce290053d717943074e78fbe452fdf9641299084359cd6e0122c210606637535b5278cf38512a6470d4ba58f461635f93345ba9dff17cc7cc748648c254534d3ff53a5e43ea1ecd9ac3d777a27d4862a4d81415dbf2581b04e7cc939fda72367532f46db566d3047e6f9f45f4979e5ade9f1f883458fbadd89a37ca95702b3675c34b783e379f15c0fa4af5ab2c7a4388868a332178e426dd32964802b26215edd72e33dd823fb628122c112437168788c735836a53436fe0e36682f6f558784772659460dc53b05a086a1243319e43638229709a4557f6701dc102c14cda1b0713f755b6393e5d6821139c47049b982f323b9548de8928111d693f23a98a90fb7e1c89c2a1762f9366a2fecf0fd422560f799a393014210e6bb95bff12ca1bdd9f6f5e293a1b747667f2829fdf5da8c3bbc98c0c0f980e50fc405de9169324d7c781614371bf2b1b18f97c851f632fdaa5f8b7460c68de6cbd3568e276e28e270e56fc44f01f061e74e183ac936389a37b8e059cac88f7455f84006f764d45c458573d625ba6c211325f8fb4a71c1a9d6236e0e8741e2b6a7f12cfd19f0d54e51e80ff8dd75eb95c68a6e5274b6d81fdc72dae5cb91b0ee0b7955bf4965473a41338d1a4f876108dc6c9d4c0cca41b2599f821483beb063110853bf0812bff3581010871825948e76d6dbb4b29ddddf653e8f39392a27287b8df3eef7698ddea81780582f5a5102ca08aa581b0cba471c0541f236850dd277f199e1f2612d0723f949e3d89dd2787692e9cd5303a5ac4cb1b6fce40da1b254c6e0cc7ac1989533c265f77020483590d4ae2c5534f9385311ddda50ebd1703699aa5585f90ae0073dcd9f5231eb6ce28aebe124529e639c39f9b5332065dbd7bea577f2440a25fac44403aaa9c540f8217bfe240ca9ff200454f2032559b5fadef4ec44ddcbc842f792a4c759ec979603640add22d2382ef20757e00b6536514adcf4f738b00a685f377b10f8493aeb5f7c7f6bba9684f1364f7c9f924288b67ace941cf3ff9cb8bc99947c208a29eefc78f6d886fb28c55bbb88f04e7b2c929cfc5aad8bb03520d30552a971e0d1b4ac5c9a67e4251fb1dd066cb247b4f4de84d15f94083410109e4b1c6e0cc95e29c53b597883adabd33579f1a27922a79d6cb83b6320c57e266bb0aa366b1e9a97962dd774becbc9f17716ac34fa384c58cb372bb8aeefcfd6806c7ba410f3903b42614e4751a18129d8fc646979ccaa9fe8869d1069651e14d6baf2e84e88659f1f81491dfd5633c3390201b2a8b34481cc3fe158dc1283ee298cf8a9e24e77cc9629c5419595e6b13c4a6bc5a91e7a5ab15539625187986e0c7bc2120bf100bfe6698835f08cce7062985bb17929888a3aba22b7a7d211e39711187c0849c27ce5b09d767bfd5e506db75af2da35f7df4bdfb3cf0d2a1615a159f7846f8f9044558c772e5adb7c135c05916444ed6239f404f9d9199b2ba43d02abdd347c18ba67d93b7d1c3f8419c395185098f5e128ad865977400406a02e9c5e247f2f1797b61c228a1ecbf9f1be4605541943bb558b9b987c72ebf9bed8c0d9fdb1aefbfcc11b738905d1bd6f64ec4ce2492b17e0b777c49cedf7649faafd962fc337311f67d41ff8b1b544d6feaf4ce3869aa6e082d7b62fc949f852cbcfe8ba8c368c103fe53f49776b4db453fb618b862d8c966b6c8fb1cac0d625c41dc12055cc5617856fe212c64696d6b41e1daaaa842840c7e406ccbca56276f180255c4593ed6ab1db128af8df7c0880b1280158f4457c8cdafe61f534aec41537260a3e6669de5ceb49f41de02b385dd14234fedd06a5acc1be19db618a60bfacdaf26bd2480754fab30d3c922ebe517e64b1166a8499f201fc7038e70fdfb4c1340ff99b30f569a50029e45cd323444b4a7e6bd120f7a04681b427188fe347e91a247ff10884611a037d7b1ca64a9f3b7293e18263c52e56591271147c34b5c5242621d942b7f1af3a5946ef5f9bdf650358ab88f3d4e3beef5d00d68c78f5befa3a8095be90be870be140df55e13f2bdba350e3b02c802d8bdcddbc48ee9c25bec330e269df6ba71ce9537e71ec6852e7090756c7c329caf3312a16e6f3a7c39e22f501ffbaa944765318eedb1e9606e8ddcfe2273c98edd3423e8440e25ebcce8b5c3f37c58e6099ebe11c0f32b5951aa04247c1a0cfe34d16632622b557d0329672a7bc5ce16ac6c866b52f6cc1f45d10d3540d90c814c550c4d8dd938313dbfefafd79980bf316c0d1665a1dfc94ab417d57252feb7e05eaa1f331b3f0a3ae06eaa8a172aeb063ff86888d6e3409e405a6b53dd82fd37651bc936a23ef4de9c4953d843e2c692ea40cccb8dce126f820a9893c11ca64434873ecb55c22ecc9febb1b193310d942f8b2d0a1d436a4c9d786d639fa7146e0cb6b64bc9b5c17ef665b72433e9ff7edbd670676ea84dee87f1b3886b2ed13f0d9f05c0a5b64f816b6d524d02bd61ae629fb899e61c461156df3a05e7fcf65ab8816b336115121242e4d895fad7bb16a865817e3f8f5bd983e85bcc34117748c7e16d4b7fb06220f3298b5b89fa327bc24442776b8831fd878d0664dda45fcdaf315c632e7bec3690ede6372771b42a014db985f3a7ccb48c0898c5be9508c881a1344fb8c424dc846417d2dc9e3f9f7dd03c935f28a93bd8379f0288268a9a943dd7ccd3a9a8d87d66ab3a0663a856c461ff6e52d9a815f2c1b4860898f6d322f8600328609bc5782fab9bda43605ac29b2af760501bc4ef16f3aafc82d53c35399ebca71161b2e7a1d45eb74d013a49dd7f34caec5608e2738958a71f2ce40b7ac723b997d12b15319c6f0955049c61fdea3de149a56487503a867b0c69d8607c4d8f6c5de931d4bd9b403ea9fcbfbb5d7b7e698ec5cb550081dbf765b3cf62b63cac9eb077ea675be297a446fa0862689c2d0e9cae7eba332c00dc9d2eac878638e5ea720247035b928d1bb78d3b7c46626c0333b7215cc77b90969951ee70afbcb35f1f2a15b32961c8f877f47e0f24b4213c7372865d15bc629615db6a87fa34c4ed8e00603c1b1c06c4c4e50902d313ad3c9c5865d3a49281d9a8c4a4e9cd8e097558f548e1c2de38fc903e796d9f26ab1d60a068513ca26050f2299082166ac75db8df2d0abded9ac8cbff83cf117201068cc82b55702efedddc834b006bf01f19a5893213ad9c7d63a5c354e0d413680036dfa5e016e44976c4d958f53ad9fd8ebed4cbae8cd7aa52bc42d99d75fd9f6a55cf817a5a033421cb0124060d4087640405f1ebb75fa0c89ad34997bf60aff779ac837bf2fae048d1cb339009981883405196f857752f1cc131e6334992e9d6efaefda160f5559b2211a67b63caeade1050eff0fec226982af9eade68a1fbdc49b231b5e0f9c3ea053ff3d67e001178403434f202e6575fec08181fd55e2daebf335ff3342a5e1a43ef578b45a14f007cf0621b7839cdd831c6460a7055093548c1bc6732758efff3c33bd503df1eb879f3a6674de1c21c8f24747bca3688da16010b5488c7bab70c25bc8d06b0cae3741f9b5dd9ec69fc8bd802a74dff73a5d726121e01a30c8a4fbd9ea29bbc55c1a5870ca661c6f4dbc6010d772874238c687d02e18823c45a0d4b040fe7c34acd6430c403173a40d8b54b6d5777529633d1b8417652e7e8e75851c3078b579fb9aa27bc5f2a73268d5b11af5d9fcb347fba78a79c9395e94906e554e06664812048b87cac9e75fab2ad20ed7b1e1a95b3fdd9075ad96c42dfcbd52db5abc7a1d1ca3ca41df3dcbd2ddfaa7994e628b45196de3769dca70034a72088d6c66726f7eb51210a7264be238a02d53039a7f73a41ac00b4bff2decb34cb670403240c464e683401f2cf0b6c77ee39265d4175b193e2542ef2932171e8df8a76e4c828836a1ca5b11b4b5b66c96769b3cd535165d60ded1e3fab5178fc040586da3379c65da6e3eb63ad909f736b8604ded6f2be86db0889fa0c7536e253ae09a5d9b9ba4a95a4b7e8023308e4e6b2228b6907083687c48a0ee2fa7f7a90ca79dfd37c8db3e5b667219046b8d600e0279057e8d9a00e70ef89ffa87c70c3e876e67ffca61300fa71b271d7feb69130c545211f7613f05823e2bbfbda88964edd354a1764caa45025ae3c7ae570c218dd3452a44dfc67a6ac09efffc186c3fb449cae060acd4d1fbb864233ead0678dd06ce4d95d647386d09ecc0feb9cd5b80c806691d1401a67c8c24508dbfca5c17247cca1484b5bbb56095e2b40752c0886de92da79eb549921877f120ca193f55bd069e90e2c702a3afda67a5ccfd67822ac80776faf912e3d8d0baabab5207577822f3b3a08063878159a6e1fb937de8a9dc773ee05ef14b87c69a25c3be8bdaaa3abd516ec40aa2215af31124e728babce556e76dab0d76649ca5aa990fe96f113cfd35ad185999af3c06871a5b173aade2fe718398204fe106d2930684fe7028f55cf98d395c58e75b4685c52c3eb7e94678e3f75e077debc7d71284256b87e96dfb37d614bf3db24547329f881874b7caa05f9208653fa23d9bffa4fababa0dc391d7f6fc02a459f0c1e9b1c82cc91c4bccf7e866e8ebf976d1685f8c400311b9efb0bc3b7778ae4b580cfcbc7137ee4b8a413801f1f26957b96432b83ef374ffc11d4342b9941a903bdd211d9ca18a5b75f32d0e2127e0af4328047b52427c71bb640862ee50e6dd5c703dc12f2636243ff033e74f428265e89e299f3e9bc76678daf8735d7b3f3b4729f8eef22d1c5fef7afae8925e074d5eb06f6127acbbf782d31098a3547479586dc71d9e87fc909eb8356c815dc07d4f4d68bc5dc94b40a65f462d915890786e1cb9a19d8c542a2d5585ad76404c016c50c30d5108a9b077f3d305cf65f618feb61cf2d6b596d0027bad510282ed8cb1340324a3fe8b7c1f383d72b29e0ad88da375346ddf53e5281c674ca0444180b4c277aa53395c15850cc9bc87c63788347c1e42ebfa540206618dce8890e8461f98704bfe32132afbcc6008ffb1c6abe40b14263624eb8c561b2b4913b65a0848f51f1281fc97c156d4a6652f55f65ec158e91ed79d7f7295d228e60c3c6f4e7452ae19370187b68f4e0e60e1d35513837babfb646968d5cdbcad059a7962c64ab0bdbe9d4140dcfd19377dc8223612f179c9aa6f0c22077c8e90e99af6c632edd7a15b018e4463b3860265536927e4fbd087f8636a7099d9e3173faf99de84c1957e8f52c896294105e8621f07da0b9246b72350f6b88e43b68b8f3ffb3e73bb26de920f5189a413030f609d0bc4a6334d95958c2b02213eb07750938bc8bde9d780a342ad67470984d2ab6408716014b77953777f1b26ac8a91b002816978a7984bf0658895a168fedbef73f8a05c7ec50adc5d2a18199d33fbf64ecad6d0b3762705062347eb2056452f40a3139f78c08525a70616274bb7c49992dfce25ca0a77c37f1072906d32fe6d1435fdfd441aa25e15f5049ac0f7c8f07b7d1831dc57278ae35aed282ef2c51912319805f9a8010e3b9f89a278c2435d0585f79a375e30297612062ef0784e48c3815aa19c2aaa593a97fcebd3efe5062ab51bd84cae9d3e913ab8d6e6227bf3638e0075e00339c1b55e0e766b49090776537bc3981d58addd6049f3e984dc07cd6ee362276a19b1f1d6216df81ef7c66191093f199d88cd35cf104a8f184810c1954d4271fa2139478cb5667d57923f292b4c224ad85cbc40bc8b6bd509bc2bba9a9c9d0a7602270db1624e8d068f19bf933cbe4a0d9b8b7764111f0066e70f9f78b01544f1dd655c721600c2da18eb04669bf0e5b914db89377137aded1eef7b1cfe19cad1a5bb90dba38fc9ab6fff1a34afe5d44b591f60a79ff02456d529534bb8e3c074aca000a300da325475d2049ba38d6b11c4c6f0b7f0d111b22aead645ab235ea828663f5fb5cd35d95c4ec4ed44d7728aae824006227b53f8ad1be003b955e816f8c43ca30b7294eb5f4e35f0998d12a853051c5b632f3442d0471027c4c970dde588780b7ded345209383f298d28f8227ed53b0f4ab550635e8016733f53da539a2ad255797ca1079d71705642fcb06e4d33cb07fcb8fd11234b76e779ffe8a0c34ba485957b5b3dd97570c8aa6583e09ab9adedd64e2c7875d9d366c9bc5fcfef0ade26be4bc9cde9136262da7cb9b45b01d2325db2e6d6f19094008d8d8aeb4010fe3f47063628f3dd35550c76d3a9a8fe4f5805c18b5577ea4f63b2d27e0df10deed497d06050a7ad7c1459907e446cba00910d5d0277c80d99c39cefa15985cf1da88261959ca64df2dedec5fa5dec9f790496b7e3afbfb677e2cacc3ff9ab347201024c7e3afa07195ae6c4f8b7c7abdafa7ca0050f7ece49964cb28a9b925ed48216a339da1aeb2f47fb3723b4c7a54516bf721491b12a05291dc20d69fd6063b55cc9b0e981f9807a466654fc23fc864e7727fe9bbeec0dbdf97e961908d101913fb39a4ded961438c6eb99698c428733e01a88dd04a033e69fc50b867cddb049ded1f1c2aa852269b24fa0276d9398a324c4437551acc922473e51e91b5da545811262f857c5accbaad1fc312c8e6543c7ba108408b3bc6901b2f9982149066a092b362e5fcff8bd8c6c210b2fdce8a535d6292fbe596b539a356ca3d0279c90d967e0b104c9272864d80f05553a42d5f592e3d7093ab3ed8766a8c7c636f4b6d5211694e952dfe0bc6effd18e80b75f5aa690837bea4518d37b1d1c08947e4720ec1ee51e184207a57a90042cdb678afed6b2ce2bb4eb497aa185156616b0b907fcb3af0b7edb5de1a28dacc434c477c319bfb006ec4aa61004e4713df221b23043432d09ae633d9a8515a875f9181802239e4b66fdd1e26724affc35a69c7a50e6f3db2322eed3f8212b6abcb77c260b2aef3214169e0cf15648aebd888caf85615a44bc40e01acd6791f957c517a607fd44108de217f68d974088dfea090d843ce3ad1027982b96fc7d385e09f7f8e5ca10c00018c6c631d1df309fb45ba6ad1dc42db1e7c7e85cd246a34c59aa359c0019f8c4d6f0a5e576d746e69750289f4c413f9c318dd1c1da5f1faa00d9b2279b4021d970d4ae5eb3dbcc669d388987d30703ace54951ff3a115ee7844369a62b4b94015247fe3e8af51acc371a7db82b67cf4fa38c45b981e33654980c1a1bbf2a7] */
+const {
+  getEnvsByName,
+  DisableCk,
+  EnableCk,
+  updateEnv,
+  updateEnv11,
+  getEnvByUserId
+} = require("./ql");
+const {
+  wait,
+  checkCk,
+  validateCarmeWithType,
+  invalidCookieNotify,
+  getUserInfo,
+  runOne,
+  getCookieMap
+} = require("./common.js");
+const _0x11f78e = require("moment");
+function _0x543ec4(_0x3fdeea, _0x4dabab) {
+  return Math.floor(Math.random() * (_0x4dabab - _0x3fdeea + 1) + _0x3fdeea);
+}
+function _0x389941(_0x1daaab) {
+  let _0x59299c = "";
+  for (let [_0x7cf76, _0x5050e8] of _0x1daaab) {
+    _0x59299c += encodeURIComponent(_0x7cf76) + "=" + encodeURIComponent(_0x5050e8) + ";";
+  }
+  return _0x59299c;
+}
+async function _0x179175(_0x2afd75, _0x2c035c, _0x3898fc) {
+  let _0x1723ee = await runOne(_0x2c035c, _0x3898fc);
+  if (_0x1723ee && _0x1723ee.data) {
+    let _0x56dfb3 = _0x1723ee.data;
+    if (_0x56dfb3.code === 3000) {
+      let _0x152e9a = JSON.parse(_0x56dfb3.returnValue.data);
+      const _0x120021 = _0x152e9a.expires;
+      const _0x3e21d8 = _0x11f78e(_0x120021 * 1000).format("YYYY-MM-DD HH:mm:ss");
+      let _0xcf2e0a = getCookieMap(_0x2c035c);
+      let _0x1e14a1 = JSON.parse(_0x56dfb3.returnValue.extMap.eleExt);
+      for (let _0x325327 = 0; _0x325327 < _0x1e14a1.length; _0x325327++) {
+        let _0x296965 = _0x1e14a1[_0x325327];
+        if (_0x296965.name === "SID") {
+          _0xcf2e0a.SID = _0x296965.value;
+          break;
+        }
+      }
+      let _0x5a92f2 = await runOne(_0x2c035c, _0xcf2e0a.get("SID"));
+      if (!_0x5a92f2) {
+        return;
+      }
+      _0xcf2e0a.cookie2 = _0x56dfb3.returnValue.sid;
+      let _0xf79b29 = _0x389941(_0xcf2e0a);
+      if (_0x2afd75.id) {
+        await updateEnv11(_0xf79b29, _0x2afd75.id, _0x2afd75.remarks);
+      } else {
+        await updateEnv(_0xf79b29, _0x2afd75._id, _0x2afd75.remarks);
+      }
+      let _0x88e06c = _0xcf2e0a.get("USERID");
+      let _0x2704d2 = await getEnvByUserId(_0x88e06c);
+      if (_0x2704d2) {
+        console.log("检测到 elmqqck，将进行同步刷新");
+        if (_0x2704d2.id) {
+          await updateEnv11(_0xf79b29, _0x2704d2.id, _0x2704d2.remarks, "elmqqck");
+        } else {
+          await updateEnv(_0xf79b29, _0x2704d2._id, _0x2704d2.remarks, "elmqqck");
+        }
+      }
+      let _0x4bf6e8 = "刷新成功，ck 有效期为：" + _0x3e21d8;
+      console.log(_0x4bf6e8);
+      return _0x4bf6e8;
+    } else {
+      if (_0x56dfb3.message) {
+        console.log(_0x56dfb3.message);
+      } else {
+        console.log(_0x1723ee.ret[0]);
+      }
+      return null;
+    }
+  }
+}
+(async function _0x1f3fe2() {
+  const _0xbb1015 = process.env.ELE_CARME;
+  await validateCarmeWithType(_0xbb1015, 1);
+  const _0x29805f = await getEnvsByName("elmck");
+  for (let _0x4b02a3 = 0; _0x4b02a3 < _0x29805f.length; _0x4b02a3++) {
+    let _0x55e0ac = _0x29805f[_0x4b02a3].value;
+    if (!_0x55e0ac) {
+      console.log(" ❌无效用户信息, 请重新获取ck");
+    } else {
+      try {
+        var _0x108a11 = 0;
+        if (_0x29805f[_0x4b02a3]._id) {
+          _0x108a11 = _0x29805f[_0x4b02a3]._id;
+        }
+        if (_0x29805f[_0x4b02a3].id) {
+          _0x108a11 = _0x29805f[_0x4b02a3].id;
+        }
+        _0x55e0ac = _0x55e0ac.replace(/\s/g, "");
+        let _0x36f4c6 = await checkCk(_0x55e0ac, _0x4b02a3);
+        if (!_0x36f4c6) {
+          let _0x2b2e4a = await _0x179175(_0x29805f[_0x4b02a3], _0x55e0ac);
+          if (_0x2b2e4a && _0x2b2e4a.indexOf("刷新成功") !== -1) {
+            await EnableCk(_0x108a11);
+            console.log("第", _0x4b02a3 + 1, "账号正常😁\n");
+          } else {
+            const _0x4fe156 = await DisableCk(_0x108a11);
+            if (_0x4fe156.code === 200) {
+              console.log("第", _0x4b02a3 + 1, "账号失效！已🈲用");
+            } else {
+              console.log("第", _0x4b02a3 + 1, "账号失效！请重新登录！！！😭");
+            }
+            await invalidCookieNotify(_0x55e0ac, _0x29805f[_0x4b02a3].remarks);
+          }
+        } else {
+          let _0x305e95 = await getUserInfo(_0x55e0ac);
+          if (!_0x305e95.username) {
+            let _0x21bffb = await _0x179175(_0x29805f[_0x4b02a3], _0x55e0ac);
+            if (_0x21bffb && _0x21bffb.indexOf("刷新成功") !== -1) {
+              await EnableCk(_0x108a11);
+              console.log("第", _0x4b02a3 + 1, "账号正常😁\n");
+            } else {
+              const _0x54a0b8 = await DisableCk(_0x108a11);
+              if (_0x54a0b8.code === 200) {
+                console.log("第", _0x4b02a3 + 1, "账号失效！已🈲用");
+              } else {
+                console.log("第", _0x4b02a3 + 1, "账号失效！请重新登录！！！😭");
+              }
+            }
+            await invalidCookieNotify(_0x55e0ac, _0x29805f[_0x4b02a3].remarks);
+          } else {
+            await _0x179175(_0x29805f[_0x4b02a3], _0x55e0ac, getCookieMap(_0x55e0ac).get("SID"));
+            await EnableCk(_0x108a11);
+            console.log("第", _0x4b02a3 + 1, "账号正常🎉🎉\n");
+          }
+        }
+      } catch (_0xaa7585) {
+        console.log(_0xaa7585);
+      }
+    }
+    await wait(_0x543ec4(2, 3));
+  }
+  process.exit(0);
+})();
+function Env(t, e) {
+  "undefined" != typeof process && JSON.stringify(process.env).indexOf("GITHUB") > -1 && process.exit(0);
+  class s {
+    constructor(t) {
+      this.env = t;
+    }
+    send(t, e = "GET") {
+      t = "string" == typeof t ? {
+        url: t
+      } : t;
+      let s = this.get;
+      "POST" === e && (s = this.post);
+      return new Promise((e, i) => {
+        s.call(this, t, (t, s, r) => {
+          t ? i(t) : e(s);
+        });
+      });
+    }
+    get(t) {
+      return this.send.call(this.env, t);
+    }
+    post(t) {
+      return this.send.call(this.env, t, "POST");
+    }
+  }
+  return new class {
+    constructor(t, e) {
+      this.name = t;
+      this.http = new s(this);
+      this.data = null;
+      this.dataFile = "box.dat";
+      this.logs = [];
+      this.isMute = !1;
+      this.isNeedRewrite = !1;
+      this.logSeparator = "\n";
+      this.startTime = new Date().getTime();
+      Object.assign(this, e);
+      this.log("", `🔔${this.name}, 开始!`);
+    }
+    isNode() {
+      return "undefined" != typeof module && !!module.exports;
+    }
+    isQuanX() {
+      return "undefined" != typeof $task;
+    }
+    isSurge() {
+      return "undefined" != typeof $httpClient && "undefined" == typeof $loon;
+    }
+    isLoon() {
+      return "undefined" != typeof $loon;
+    }
+    toObj(t, e = null) {
+      try {
+        return JSON.parse(t);
+      } catch {
+        return e;
+      }
+    }
+    toStr(t, e = null) {
+      try {
+        return JSON.stringify(t);
+      } catch {
+        return e;
+      }
+    }
+    getjson(t, e) {
+      let s = e;
+      const i = this.getdata(t);
+      if (i) {
+        try {
+          s = JSON.parse(this.getdata(t));
+        } catch {}
+      }
+      return s;
+    }
+    setjson(t, e) {
+      try {
+        return this.setdata(JSON.stringify(t), e);
+      } catch {
+        return !1;
+      }
+    }
+    getScript(t) {
+      return new Promise(e => {
+        this.get({
+          url: t
+        }, (t, s, i) => e(i));
+      });
+    }
+    runScript(t, e) {
+      return new Promise(s => {
+        let i = this.getdata("@chavy_boxjs_userCfgs.httpapi");
+        i = i ? i.replace(/\n/g, "").trim() : i;
+        let r = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
+        r = r ? 1 * r : 20;
+        r = e && e.timeout ? e.timeout : r;
+        const [o, h] = i.split("@"),
+          n = {
+            url: `http://${h}/v1/scripting/evaluate`,
+            body: {
+              script_text: t,
+              mock_type: "cron",
+              timeout: r
+            },
+            headers: {
+              "X-Key": o,
+              Accept: "*/*"
+            }
+          };
+        this.post(n, (t, e, i) => s(i));
+      }).catch(t => this.logErr(t));
+    }
+    loaddata() {
+      if (!this.isNode()) {
+        return {};
+      }
+      {
+        this.fs = this.fs ? this.fs : require("fs");
+        this.path = this.path ? this.path : require("path");
+        const t = this.path.resolve(this.dataFile),
+          e = this.path.resolve(process.cwd(), this.dataFile),
+          s = this.fs.existsSync(t),
+          i = !s && this.fs.existsSync(e);
+        if (!s && !i) {
+          return {};
+        }
+        {
+          const i = s ? t : e;
+          try {
+            return JSON.parse(this.fs.readFileSync(i));
+          } catch (t) {
+            return {};
+          }
+        }
+      }
+    }
+    writedata() {
+      if (this.isNode()) {
+        this.fs = this.fs ? this.fs : require("fs");
+        this.path = this.path ? this.path : require("path");
+        const t = this.path.resolve(this.dataFile),
+          e = this.path.resolve(process.cwd(), this.dataFile),
+          s = this.fs.existsSync(t),
+          i = !s && this.fs.existsSync(e),
+          r = JSON.stringify(this.data);
+        s ? this.fs.writeFileSync(t, r) : i ? this.fs.writeFileSync(e, r) : this.fs.writeFileSync(t, r);
+      }
+    }
+    lodash_get(t, e, s) {
+      const i = e.replace(/\[(\d+)\]/g, ".$1").split(".");
+      let r = t;
+      for (const t of i) if (r = Object(r)[t], void 0 === r) {
+        return s;
+      }
+      return r;
+    }
+    lodash_set(t, e, s) {
+      return Object(t) !== t ? t : (Array.isArray(e) || (e = e.toString().match(/[^.[\]]+/g) || []), e.slice(0, -1).reduce((t, s, i) => Object(t[s]) === t[s] ? t[s] : t[s] = Math.abs(e[i + 1]) >> 0 == +e[i + 1] ? [] : {}, t)[e[e.length - 1]] = s, t);
+    }
+    getdata(t) {
+      let e = this.getval(t);
+      if (/^@/.test(t)) {
+        const [, s, i] = /^@(.*?)\.(.*?)$/.exec(t),
+          r = s ? this.getval(s) : "";
+        if (r) {
+          try {
+            const t = JSON.parse(r);
+            e = t ? this.lodash_get(t, i, "") : e;
+          } catch (t) {
+            e = "";
+          }
+        }
+      }
+      return e;
+    }
+    setdata(t, e) {
+      let s = !1;
+      if (/^@/.test(e)) {
+        const [, i, r] = /^@(.*?)\.(.*?)$/.exec(e),
+          o = this.getval(i),
+          h = i ? "null" === o ? null : o || "{}" : "{}";
+        try {
+          const e = JSON.parse(h);
+          this.lodash_set(e, r, t);
+          s = this.setval(JSON.stringify(e), i);
+        } catch (e) {
+          const o = {};
+          this.lodash_set(o, r, t);
+          s = this.setval(JSON.stringify(o), i);
+        }
+      } else {
+        s = this.setval(t, e);
+      }
+      return s;
+    }
+    getval(t) {
+      return this.isSurge() || this.isLoon() ? $persistentStore.read(t) : this.isQuanX() ? $prefs.valueForKey(t) : this.isNode() ? (this.data = this.loaddata(), this.data[t]) : this.data && this.data[t] || null;
+    }
+    setval(t, e) {
+      return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null;
+    }
+    initGotEnv(t) {
+      this.got = this.got ? this.got : require("got");
+      this.cktough = this.cktough ? this.cktough : require("tough-cookie");
+      this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar();
+      t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar));
+    }
+    get(t, e = () => {}) {
+      t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]);
+      this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+        "X-Surge-Skip-Scripting": !1
+      })), $httpClient.get(t, (t, s, i) => {
+        !t && s && (s.body = i, s.statusCode = s.status);
+        e(t, s, i);
+      })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+        hints: !1
+      })), $task.fetch(t).then(t => {
+        const {
+          statusCode: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        } = t;
+        e(null, {
+          status: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        }, o);
+      }, t => e(t))) : this.isNode() && (this.initGotEnv(t), this.got(t).on("redirect", (t, e) => {
+        try {
+          if (t.headers["set-cookie"]) {
+            const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
+            s && this.ckjar.setCookieSync(s, null);
+            e.cookieJar = this.ckjar;
+          }
+        } catch (t) {
+          this.logErr(t);
+        }
+      }).then(t => {
+        const {
+          statusCode: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        } = t;
+        e(null, {
+          status: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        }, o);
+      }, t => {
+        const {
+          message: s,
+          response: i
+        } = t;
+        e(s, i, i && i.body);
+      }));
+    }
+    post(t, e = () => {}) {
+      if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) {
+        this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+          "X-Surge-Skip-Scripting": !1
+        }));
+        $httpClient.post(t, (t, s, i) => {
+          !t && s && (s.body = i, s.statusCode = s.status);
+          e(t, s, i);
+        });
+      } else {
+        if (this.isQuanX()) {
+          t.method = "POST";
+          this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+            hints: !1
+          }));
+          $task.fetch(t).then(t => {
+            const {
+              statusCode: s,
+              statusCode: i,
+              headers: r,
+              body: o
+            } = t;
+            e(null, {
+              status: s,
+              statusCode: i,
+              headers: r,
+              body: o
+            }, o);
+          }, t => e(t));
+        } else {
+          if (this.isNode()) {
+            this.initGotEnv(t);
+            const {
+              url: s,
+              ...i
+            } = t;
+            this.got.post(s, i).then(t => {
+              const {
+                statusCode: s,
+                statusCode: i,
+                headers: r,
+                body: o
+              } = t;
+              e(null, {
+                status: s,
+                statusCode: i,
+                headers: r,
+                body: o
+              }, o);
+            }, t => {
+              const {
+                message: s,
+                response: i
+              } = t;
+              e(s, i, i && i.body);
+            });
+          }
+        }
+      }
+    }
+    time(t, e = null) {
+      const s = e ? new Date(e) : new Date();
+      let i = {
+        "M+": s.getMonth() + 1,
+        "d+": s.getDate(),
+        "H+": s.getHours(),
+        "m+": s.getMinutes(),
+        "s+": s.getSeconds(),
+        "q+": Math.floor((s.getMonth() + 3) / 3),
+        S: s.getMilliseconds()
+      };
+      /(y+)/.test(t) && (t = t.replace(RegExp.$1, (s.getFullYear() + "").substr(4 - RegExp.$1.length)));
+      for (let e in i) new RegExp("(" + e + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? i[e] : ("00" + i[e]).substr(("" + i[e]).length)));
+      return t;
+    }
+    msg(e = t, s = "", i = "", r) {
+      const o = t => {
+        if (!t) {
+          return t;
+        }
+        if ("string" == typeof t) {
+          return this.isLoon() ? t : this.isQuanX() ? {
+            "open-url": t
+          } : this.isSurge() ? {
+            url: t
+          } : void 0;
+        }
+        if ("object" == typeof t) {
+          if (this.isLoon()) {
+            let e = t.openUrl || t.url || t["open-url"],
+              s = t.mediaUrl || t["media-url"];
+            return {
+              openUrl: e,
+              mediaUrl: s
+            };
+          }
+          if (this.isQuanX()) {
+            let e = t["open-url"] || t.url || t.openUrl,
+              s = t["media-url"] || t.mediaUrl;
+            return {
+              "open-url": e,
+              "media-url": s
+            };
+          }
+          if (this.isSurge()) {
+            let e = t.url || t.openUrl || t["open-url"];
+            return {
+              url: e
+            };
+          }
+        }
+      };
+      if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
+        let t = ["", "==============📣系统通知📣=============="];
+        t.push(e);
+        s && t.push(s);
+        i && t.push(i);
+        console.log(t.join("\n"));
+        this.logs = this.logs.concat(t);
+      }
+    }
+    log(...t) {
+      t.length > 0 && (this.logs = [...this.logs, ...t]);
+      console.log(t.join(this.logSeparator));
+    }
+    logErr(t, e) {
+      const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
+      s ? this.log("", `❗️${this.name}, 错误!`, t.stack) : this.log("", `❗️${this.name}, 错误!`, t);
+    }
+    wait(t) {
+      return new Promise(e => setTimeout(e, t));
+    }
+    done(t = {}) {
+      const e = new Date().getTime(),
+        s = (e - this.startTime) / 1000;
+      this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`);
+      this.log();
+      (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t);
+    }
+  }(t, e);
+}
