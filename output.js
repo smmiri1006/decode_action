@@ -1,4 +1,4 @@
-//Mon Aug 19 2024 09:13:28 GMT+0000 (Coordinated Universal Time)
+//Mon Aug 19 2024 12:41:58 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const {
@@ -16,7 +16,7 @@ const {
 } = require("./common.js");
 const {
   sendNotify
-} = require("./ele_sendNotify.js");
+} = require("./sendNotify1.js");
 const _0x3ee842 = require("moment");
 const _0x43a291 = require("request");
 const _0xf58a19 = 10;
