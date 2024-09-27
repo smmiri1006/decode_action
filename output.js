@@ -1,4 +1,4 @@
-//Sun Sep 08 2024 04:12:30 GMT+0000 (Coordinated Universal Time)
+//Fri Sep 27 2024 04:06:14 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const $ = new Env("望潮");
@@ -22,16 +22,16 @@ const notify = $.isNode() ? require("../sendNotify") : "";
         return {
           s: ag,
           n: function () {
-            var am = {
+            var an = {
               done: !0
             };
-            return af >= ab.length ? am : {
+            return af >= ab.length ? an : {
               done: !1,
               value: ab[af++]
             };
           },
-          e: function (am) {
-            throw am;
+          e: function (al) {
+            throw al;
           },
           f: ag
         };
@@ -46,13 +46,13 @@ const notify = $.isNode() ? require("../sendNotify") : "";
         ae = ae.call(ab);
       },
       n: function () {
-        var ao = ae.next();
-        ai = ao.done;
-        return ao;
+        var am = ae.next();
+        ai = am.done;
+        return am;
       },
-      e: function (an) {
+      e: function (am) {
         aj = !0;
-        ah = an;
+        ah = am;
       },
       f: function () {
         try {
@@ -131,11 +131,12 @@ const notify = $.isNode() ? require("../sendNotify") : "";
           type: "normal",
           arg: aL.call(aM, aN)
         };
-      } catch (aS) {
-        var aP = {};
-        aP.type = "throw";
-        aP.arg = aS;
-        return aP;
+      } catch (aQ) {
+        var aO = {
+          type: "throw",
+          arg: aQ
+        };
+        return aO;
       }
     }
     ad.wrap = am;
@@ -158,8 +159,8 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     var az = av.prototype;
     function aA(aL) {
       ["next", "throw", "return"].forEach(function (aN) {
-        al(aL, aN, function (aQ) {
-          return this._invoke(aN, aQ);
+        al(aL, aN, function (aP) {
+          return this._invoke(aN, aP);
         });
       });
     }
@@ -169,15 +170,15 @@ const notify = $.isNode() ? require("../sendNotify") : "";
         if ("throw" !== aW.type) {
           var aX = aW.arg,
             aY = aX.value;
-          return aY && "object" == b(aY) && af.call(aY, "__await") ? aM.resolve(aY.__await).then(function (aZ) {
-            aQ("next", aZ, aT, aU);
-          }, function (aZ) {
-            aQ("throw", aZ, aT, aU);
-          }) : aM.resolve(aY).then(function (aZ) {
-            aX.value = aZ;
+          return aY && "object" == b(aY) && af.call(aY, "__await") ? aM.resolve(aY.__await).then(function (b1) {
+            aQ("next", b1, aT, aU);
+          }, function (b1) {
+            aQ("throw", b1, aT, aU);
+          }) : aM.resolve(aY).then(function (b1) {
+            aX.value = b1;
             aT(aX);
-          }, function (aZ) {
-            return aQ("throw", aZ, aT, aU);
+          }, function (b1) {
+            return aQ("throw", b1, aT, aU);
           });
         }
         aU(aW.arg);
@@ -185,12 +186,12 @@ const notify = $.isNode() ? require("../sendNotify") : "";
       var aO;
       ag(this, "_invoke", {
         value: function (aR, aS) {
-          function aU() {
+          function aT() {
             return new aM(function (aW, aX) {
               aQ(aR, aS, aW, aX);
             });
           }
-          return aO = aO ? aO.then(aU, aU) : aU();
+          return aO = aO ? aO.then(aT, aT) : aT();
         }
       });
     }
@@ -204,10 +205,9 @@ const notify = $.isNode() ? require("../sendNotify") : "";
           if ("throw" === aR) {
             throw aS;
           }
-          var aU = {
-            value: ac,
-            done: !0
-          };
+          var aU = {};
+          aU.value = ac;
+          aU.done = !0;
           return aU;
         }
         for (aN.method = aR, aN.arg = aS;;) {
@@ -249,36 +249,37 @@ const notify = $.isNode() ? require("../sendNotify") : "";
       };
     }
     function aD(aL, aM) {
-      var aN = aM.method,
-        aO = aL.iterator[aN];
-      if (aO === ac) {
+      var aS = aM.method,
+        aT = aL.iterator[aS];
+      if (aT === ac) {
         aM.delegate = null;
-        "throw" === aN && aL.iterator.return && (aM.method = "return", aM.arg = ac, aD(aL, aM), "throw" === aM.method) || "return" !== aN && (aM.method = "throw", aM.arg = new TypeError("The iterator does not provide a '" + aN + "' method"));
+        "throw" === aS && aL.iterator.return && (aM.method = "return", aM.arg = ac, aD(aL, aM), "throw" === aM.method) || "return" !== aS && (aM.method = "throw", aM.arg = new TypeError("The iterator does not provide a '" + aS + "' method"));
         return as;
       }
-      var aP = an(aO, aL.iterator, aM.arg);
-      if ("throw" === aP.type) {
+      var aQ = an(aT, aL.iterator, aM.arg);
+      if ("throw" === aQ.type) {
         aM.method = "throw";
-        aM.arg = aP.arg;
+        aM.arg = aQ.arg;
         aM.delegate = null;
         return as;
       }
-      var aQ = aP.arg;
-      return aQ ? aQ.done ? (aM[aL.resultName] = aQ.value, aM.next = aL.nextLoc, "return" !== aM.method && (aM.method = "next", aM.arg = ac), aM.delegate = null, as) : aQ : (aM.method = "throw", aM.arg = new TypeError("iterator result is not an object"), aM.delegate = null, as);
+      var aR = aQ.arg;
+      return aR ? aR.done ? (aM[aL.resultName] = aR.value, aM.next = aL.nextLoc, "return" !== aM.method && (aM.method = "next", aM.arg = ac), aM.delegate = null, as) : aR : (aM.method = "throw", aM.arg = new TypeError("iterator result is not an object"), aM.delegate = null, as);
     }
     function aE(aL) {
-      var aM = {};
-      aM.tryLoc = aL[0];
+      var aM = {
+        tryLoc: aL[0]
+      };
       var aN = aM;
       1 in aL && (aN.catchLoc = aL[1]);
       2 in aL && (aN.finallyLoc = aL[2], aN.afterLoc = aL[3]);
       this.tryEntries.push(aN);
     }
     function aF(aL) {
-      var aN = aL.completion || {};
-      aN.type = "normal";
-      delete aN.arg;
-      aL.completion = aN;
+      var aM = aL.completion || {};
+      aM.type = "normal";
+      delete aM.arg;
+      aL.completion = aM;
     }
     function aG(aL) {
       var aM = {
@@ -327,8 +328,8 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     });
     au.displayName = al(av, ak, "GeneratorFunction");
     ad.isGeneratorFunction = function (aL) {
-      var aO = "function" == typeof aL && aL.constructor;
-      return !!aO && (aO === au || "GeneratorFunction" === (aO.displayName || aO.name));
+      var aN = "function" == typeof aL && aL.constructor;
+      return !!aN && (aN === au || "GeneratorFunction" === (aN.displayName || aN.name));
     };
     ad.mark = function (aL) {
       Object.setPrototypeOf ? Object.setPrototypeOf(aL, av) : (aL.__proto__ = av, al(aL, ak, "GeneratorFunction"));
@@ -336,10 +337,10 @@ const notify = $.isNode() ? require("../sendNotify") : "";
       return aL;
     };
     ad.awrap = function (aL) {
-      var aO = {
+      var aN = {
         __await: aL
       };
-      return aO;
+      return aN;
     };
     aA(aB.prototype);
     al(aB.prototype, aj, function () {
@@ -362,21 +363,21 @@ const notify = $.isNode() ? require("../sendNotify") : "";
       return "[object Generator]";
     });
     ad.keys = function (aL) {
-      var aM = Object(aL),
-        aN = [];
-      for (var aO in aM) aN.push(aO);
-      aN.reverse();
-      return function aQ() {
-        for (; aN.length;) {
-          var aS = aN.pop();
-          if (aS in aM) {
-            aQ.value = aS;
-            aQ.done = !1;
-            return aQ;
+      var aN = Object(aL),
+        aO = [];
+      for (var aP in aN) aO.push(aP);
+      aO.reverse();
+      return function aR() {
+        for (; aO.length;) {
+          var aT = aO.pop();
+          if (aT in aN) {
+            aR.value = aT;
+            aR.done = !1;
+            return aR;
           }
         }
-        aQ.done = !0;
-        return aQ;
+        aR.done = !0;
+        return aR;
       };
     };
     ad.values = aH;
@@ -441,18 +442,18 @@ const notify = $.isNode() ? require("../sendNotify") : "";
         }
       },
       abrupt: function (aL, aM) {
-        for (var aN = this.tryEntries.length - 1; aN >= 0; --aN) {
-          var aO = this.tryEntries[aN];
-          if (aO.tryLoc <= this.prev && af.call(aO, "finallyLoc") && this.prev < aO.finallyLoc) {
-            var aP = aO;
+        for (var aO = this.tryEntries.length - 1; aO >= 0; --aO) {
+          var aP = this.tryEntries[aO];
+          if (aP.tryLoc <= this.prev && af.call(aP, "finallyLoc") && this.prev < aP.finallyLoc) {
+            var aQ = aP;
             break;
           }
         }
-        aP && ("break" === aL || "continue" === aL) && aP.tryLoc <= aM && aM <= aP.finallyLoc && (aP = null);
-        var aQ = aP ? aP.completion : {};
-        aQ.type = aL;
-        aQ.arg = aM;
-        return aP ? (this.method = "next", this.next = aP.finallyLoc, as) : this.complete(aQ);
+        aQ && ("break" === aL || "continue" === aL) && aQ.tryLoc <= aM && aM <= aQ.finallyLoc && (aQ = null);
+        var aR = aQ ? aQ.completion : {};
+        aR.type = aL;
+        aR.arg = aM;
+        return aQ ? (this.method = "next", this.next = aQ.finallyLoc, as) : this.complete(aR);
       },
       complete: function (aL, aM) {
         if ("throw" === aL.type) {
@@ -499,12 +500,12 @@ const notify = $.isNode() ? require("../sendNotify") : "";
   }
   function h(ab, ac, ad, ae, af, ag, ah) {
     try {
-      var aj = ab[ag](ah),
-        ak = aj.value;
-    } catch (am) {
-      return void ad(am);
+      var ai = ab[ag](ah),
+        aj = ai.value;
+    } catch (al) {
+      return void ad(al);
     }
-    aj.done ? ac(ak) : Promise.resolve(ak).then(ae, af);
+    ai.done ? ac(aj) : Promise.resolve(aj).then(ae, af);
   }
   function i(ab) {
     return function () {
@@ -543,8 +544,8 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     return B.apply(this, arguments);
   }
   function B() {
-    B = i(g().mark(function ad() {
-      var af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF;
+    B = i(g().mark(function ab() {
+      var ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE;
       return g().wrap(function (aG) {
         for (;;) {
           switch (aG.prev = aG.next) {
@@ -563,66 +564,66 @@ const notify = $.isNode() ? require("../sendNotify") : "";
               return a7();
             case 8:
               k = aG.sent;
-              af = j.split(" ");
-              ag = c(af);
+              ad = j.split(" ");
+              ae = c(ad);
               aG.prev = 11;
-              ag.s();
+              ae.s();
             case 13:
-              if ((ah = ag.n()).done) {
-                aG.next = 161;
+              if ((af = ae.n()).done) {
+                aG.next = 164;
                 break;
               }
-              ai = ah.value;
+              ag = af.value;
               console.log("随机生成UA");
-              aj = a5();
-              n = aj.ua;
-              o = aj.commonUa;
-              p = aj.uuid;
+              ah = a5();
+              n = ah.ua;
+              o = ah.commonUa;
+              p = ah.uuid;
               console.log(n);
               console.log(o);
-              u = ai.split("&")[0];
-              v = ai.split("&")[1];
+              u = ag.split("&")[0];
+              v = ag.split("&")[1];
               console.log("用户：".concat(u, "开始任务"));
               console.log("获取sessionId");
               aG.next = 28;
               return I("/api/account/init");
             case 28:
-              ak = aG.sent;
-              x = ak.data.session.id;
+              ai = aG.sent;
+              x = ai.data.session.id;
               console.log(x);
               console.log("获取signature_key");
               aG.next = 34;
               return C("/web/init?client_id=".concat(w));
             case 34:
-              al = aG.sent;
-              l = al.data.client.signature_key;
+              aj = aG.sent;
+              l = aj.data.client.signature_key;
               console.log(l);
               console.log("获取code");
               aG.next = 40;
               return E("/web/oauth/credential_auth");
             case 40:
-              if (am = aG.sent, am.data) {
+              if (ak = aG.sent, ak.data) {
                 aG.next = 44;
                 break;
               }
-              console.log(am.message);
-              return aG.abrupt("continue", 159);
+              console.log(ak.message);
+              return aG.abrupt("continue", 162);
             case 44:
-              an = am.data.authorization_code.code;
-              console.log(an);
+              al = ak.data.authorization_code.code;
+              console.log(al);
               console.log("登录");
               aG.next = 49;
-              return I("/api/zbtxz/login", "check_token=&code=".concat(an, "&token=&type=-1&union_id="));
+              return I("/api/zbtxz/login", "check_token=&code=".concat(al, "&token=&type=-1&union_id="));
             case 49:
-              ao = aG.sent;
+              am = aG.sent;
               console.log("登录成功");
-              t = ao.data.session.account_id;
-              x = ao.data.session.id;
+              t = am.data.session.account_id;
+              x = am.data.session.id;
               aG.next = 55;
               return G("/api/app_feature_switch/list");
             case 55:
-              ap = aG.sent;
-              console.log("进入app：".concat(ap.message));
+              an = aG.sent;
+              console.log("进入app：".concat(an.message));
               console.log("————————————");
               console.log("阅读抽奖");
               q = "";
@@ -634,41 +635,41 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                 aG.next = 66;
                 break;
               }
-              return aG.abrupt("continue", 159);
+              return aG.abrupt("continue", 162);
             case 66:
               console.log(q);
               aG.next = 69;
               return M("/prod-api/user-read/list/".concat(a4()));
             case 69:
-              aq = aG.sent;
-              ar = c(aq.data.articleIsReadList);
+              ao = aG.sent;
+              ap = c(ao.data.articleIsReadList);
               aG.prev = 71;
-              ar.s();
+              ap.s();
             case 73:
-              if ((as = ar.n()).done) {
+              if ((aq = ap.n()).done) {
                 aG.next = 89;
                 break;
               }
-              at = as.value;
-              console.log("文章：".concat(at.title));
+              ar = aq.value;
+              console.log("文章：".concat(ar.title));
               aG.next = 78;
-              return G("/api/article/detail?id=".concat(at.newsId));
+              return G("/api/article/detail?id=".concat(ar.newsId));
             case 78:
               aG.sent;
               aG.next = 81;
-              return G("/api/article/read_time?channel_article_id=".concat(at.newsId, "&is_end=true&read_time=7934"));
+              return G("/api/article/read_time?channel_article_id=".concat(ar.newsId, "&is_end=true&read_time=7934"));
             case 81:
               aG.sent;
-              au = JSON.stringify({
+              as = JSON.stringify({
                 timestamp: Date.now(),
-                articleId: at.id,
+                articleId: ar.id,
                 accountId: t
               });
               aG.next = 85;
-              return M("/prod-api/already-read/article/new?signature=".concat(a0(au)), au);
+              return M("/prod-api/already-read/article/new?signature=".concat(a0(as)), as);
             case 85:
-              av = aG.sent;
-              console.log("阅读：".concat(av.msg));
+              at = aG.sent;
+              console.log("阅读：".concat(at.msg));
             case 87:
               aG.next = 73;
               break;
@@ -678,16 +679,16 @@ const notify = $.isNode() ? require("../sendNotify") : "";
             case 91:
               aG.prev = 91;
               aG.t0 = aG.catch(71);
-              ar.e(aG.t0);
+              ap.e(aG.t0);
             case 94:
               aG.prev = 94;
-              ar.f();
+              ap.f();
               return aG.finish(94);
             case 97:
               aG.next = 99;
               return M("/prod-api/user-read-count/count/".concat(a4()));
             case 99:
-              aw = aG.sent;
+              au = aG.sent;
               s = "";
               aG.next = 103;
               return O("/tzrb/user/loginWC?accountId=".concat(t, "&sessionId=").concat(x));
@@ -698,38 +699,38 @@ const notify = $.isNode() ? require("../sendNotify") : "";
               aG.next = 108;
               return Q("/tzrb/awardUpgrade/list?activityId=67");
             case 108:
-              ax = aG.sent;
-              ay = ax.data;
-              az = g().mark(function aN() {
-                var aP, aQ;
-                return g().wrap(function (aR) {
+              av = aG.sent;
+              aw = av.data;
+              ax = g().mark(function aO() {
+                var aQ, aR;
+                return g().wrap(function (aT) {
                   for (;;) {
-                    switch (aR.prev = aR.next) {
+                    switch (aT.prev = aT.next) {
                       case 0:
-                        aR.next = 2;
+                        aT.next = 2;
                         return S("/tzrb/userAwardRecordUpgrade/saveUpdate", "activityId=67&sessionId=undefined&sig=undefined&token=undefined");
                       case 2:
-                        aP = aR.sent;
-                        aQ = ay.findIndex(function (aT) {
-                          return aT.id == aP.data;
+                        aQ = aT.sent;
+                        aR = aw.findIndex(function (aV) {
+                          return aV.id == aQ.data;
                         });
-                        -1 != aQ ? (console.log("抽奖获得：".concat(ay[aQ].title)), y += "用户：".concat(u, " 抽奖获得：").concat(ay[aQ].title, "\n")) : console.log(JSON.stringify(aP));
+                        -1 != aR ? (console.log("抽奖获得：".concat(aw[aR].title)), y += "用户：".concat(u, " 抽奖获得：").concat(aw[aR].title, "\n")) : console.log(JSON.stringify(aQ));
                       case 5:
                       case "end":
-                        return aR.stop();
+                        return aT.stop();
                     }
                   }
-                }, aN);
+                }, aO);
               });
-              aA = 0;
+              ay = 0;
             case 112:
-              if (!(aA < aw.data)) {
+              if (!(ay < au.data)) {
                 aG.next = 117;
                 break;
               }
-              return aG.delegateYield(az(), "t1", 114);
+              return aG.delegateYield(ax(), "t1", 114);
             case 114:
-              aA++;
+              ay++;
               aG.next = 112;
               break;
             case 117:
@@ -744,86 +745,92 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                 aG.next = 126;
                 break;
               }
-              return aG.abrupt("continue", 159);
+              return aG.abrupt("continue", 162);
             case 126:
               console.log(r);
               aG.next = 129;
               return W("/wcgames/WordFillGame/get_user_info/");
             case 129:
-              aB = aG.sent;
-              console.log("今日答题进度：".concat(aB.data.answerCount, "/5 已闯过").concat(aB.data.level, "关"));
-              aC = aB.data.answerCount;
+              az = aG.sent;
+              console.log("今日答题进度：".concat(az.data.answerCount, "/5 已闯过").concat(az.data.level, "关"));
+              aA = az.data.answerCount;
             case 132:
-              if (!(aC < 5)) {
-                aG.next = 145;
+              if (!(aA < 5)) {
+                aG.next = 148;
                 break;
               }
               console.log("获取题目");
               aG.next = 136;
               return W("/wcgames/WordFillGame/get_question/");
             case 136:
-              aD = aG.sent;
-              console.log("题目：".concat(aD.data.question, " 答案：").concat(aD.data.answer));
-              aG.next = 140;
-              return Y("/wcgames/WordFillGame/submit_answer/", "accountId=".concat(t));
-            case 140:
-              aE = aG.sent;
-              console.log("答题：".concat(aE.message));
-            case 142:
-              aC++;
-              aG.next = 132;
-              break;
-            case 145:
-              aG.next = 147;
-              return W("/wcgames/WordFillGame/get_user_info/");
-            case 147:
-              if (aB = aG.sent, 1 != aB.data.isGetRed) {
-                aG.next = 151;
+              if (aC = aG.sent, null != aC && null !== (aB = aC.data) && void 0 !== aB && aB.question) {
+                aG.next = 140;
                 break;
               }
-              console.log("已领取支付宝红包");
-              return aG.abrupt("continue", 159);
-            case 151:
-              if (1 == aB.data.alipayId_bind) {
+              console.log(aC.message);
+              return aG.abrupt("break", 148);
+            case 140:
+              console.log("题目：".concat(aC.data.question, " 答案：").concat(aC.data.answer));
+              aG.next = 143;
+              return Y("/wcgames/WordFillGame/submit_answer/", "accountId=".concat(t));
+            case 143:
+              aD = aG.sent;
+              console.log("答题：".concat(aD.message));
+            case 145:
+              aA++;
+              aG.next = 132;
+              break;
+            case 148:
+              aG.next = 150;
+              return W("/wcgames/WordFillGame/get_user_info/");
+            case 150:
+              if (az = aG.sent, 1 != az.data.isGetRed) {
                 aG.next = 154;
                 break;
               }
-              console.log("未绑定支付宝");
-              return aG.abrupt("continue", 159);
+              console.log("已领取支付宝红包");
+              return aG.abrupt("continue", 162);
             case 154:
-              aG.next = 156;
-              return W("/wcgames/WordFillGame/generate_custom_redpacket/");
-            case 156:
-              aF = aG.sent;
-              console.log("答题抽奖获得支付宝红包：".concat(aF.message, "元"));
-              y += "用户：".concat(u, " 答题抽奖获得支付宝红包：").concat(aF.message, "元\n");
-            case 159:
-              aG.next = 13;
-              break;
-            case 161:
-              aG.next = 166;
-              break;
-            case 163:
-              aG.prev = 163;
-              aG.t2 = aG.catch(11);
-              ag.e(aG.t2);
-            case 166:
-              aG.prev = 166;
-              ag.f();
-              return aG.finish(166);
-            case 169:
-              if (!y) {
-                aG.next = 172;
+              if (1 == az.data.alipayId_bind) {
+                aG.next = 157;
                 break;
               }
-              aG.next = 172;
-              return a9(y);
+              console.log("未绑定支付宝");
+              return aG.abrupt("continue", 162);
+            case 157:
+              aG.next = 159;
+              return W("/wcgames/WordFillGame/generate_custom_redpacket/");
+            case 159:
+              aE = aG.sent;
+              console.log("答题抽奖获得支付宝红包：".concat(aE.message, "元"));
+              y += "用户：".concat(u, " 答题抽奖获得支付宝红包：").concat(aE.message, "元\n");
+            case 162:
+              aG.next = 13;
+              break;
+            case 164:
+              aG.next = 169;
+              break;
+            case 166:
+              aG.prev = 166;
+              aG.t2 = aG.catch(11);
+              ae.e(aG.t2);
+            case 169:
+              aG.prev = 169;
+              ae.f();
+              return aG.finish(169);
             case 172:
+              if (!y) {
+                aG.next = 175;
+                break;
+              }
+              aG.next = 175;
+              return a9(y);
+            case 175:
             case "end":
               return aG.stop();
           }
         }
-      }, ad, null, [[11, 163, 166, 169], [71, 91, 94, 97]]);
+      }, ab, null, [[11, 166, 169, 172], [71, 91, 94, 97]]);
     }));
     return B.apply(this, arguments);
   }
@@ -831,14 +838,14 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     return D.apply(this, arguments);
   }
   function D() {
-    D = i(g().mark(function ac(ad) {
-      return g().wrap(function (af) {
+    D = i(g().mark(function ad(ae) {
+      return g().wrap(function (ag) {
         for (;;) {
-          switch (af.prev = af.next) {
+          switch (ag.prev = ag.next) {
             case 0:
-              return af.abrupt("return", new Promise(function (ai) {
-                var aj = {
-                  url: "https://passport.tmuyun.com".concat(ad),
+              return ag.abrupt("return", new Promise(function (ai) {
+                var ak = {
+                  url: "https://passport.tmuyun.com".concat(ae),
                   headers: {
                     Connection: "Keep-Alive",
                     "Cache-Control": "no-cache",
@@ -847,22 +854,22 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                     "user-agent": n
                   }
                 };
-                $.get(aj, function () {
+                $.get(ak, function () {
                   var am = i(g().mark(function ao(ap, aq, ar) {
-                    return g().wrap(function (as) {
+                    return g().wrap(function (at) {
                       for (;;) {
-                        switch (as.prev = as.next) {
+                        switch (at.prev = at.next) {
                           case 0:
                             try {
                               ap ? (console.log("".concat(JSON.stringify(ap))), console.log("".concat($.name, " API请求失败，请检查网路重试"))) : ai(JSON.parse(ar));
-                            } catch (av) {
-                              $.logErr(av, aq);
+                            } catch (aw) {
+                              $.logErr(aw, aq);
                             } finally {
                               ai();
                             }
                           case 1:
                           case "end":
-                            return as.stop();
+                            return at.stop();
                         }
                       }
                     }, ao);
@@ -874,10 +881,10 @@ const notify = $.isNode() ? require("../sendNotify") : "";
               }));
             case 1:
             case "end":
-              return af.stop();
+              return ag.stop();
           }
         }
-      }, ac);
+      }, ad);
     }));
     return D.apply(this, arguments);
   }
@@ -886,55 +893,54 @@ const notify = $.isNode() ? require("../sendNotify") : "";
   }
   function F() {
     F = i(g().mark(function ac(ad) {
-      var af;
-      return g().wrap(function (ag) {
+      var ae;
+      return g().wrap(function (af) {
         for (;;) {
-          switch (ag.prev = ag.next) {
+          switch (af.prev = af.next) {
             case 0:
-              af = a1();
-              return ag.abrupt("return", new Promise(function (ai) {
-                var ak = {
-                  Connection: "Keep-Alive",
-                  "X-REQUEST-ID": af.uuid,
-                  "X-SIGNATURE": af.signature,
-                  "Cache-Control": "no-cache",
-                  "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-                  "Accept-Encoding": "gzip",
-                  "user-agent": n
-                };
-                var al = {
+              ae = a1();
+              return af.abrupt("return", new Promise(function (ah) {
+                var aj = {
                   url: "https://passport.tmuyun.com".concat(ad),
-                  headers: ak,
-                  body: af.body
+                  headers: {
+                    Connection: "Keep-Alive",
+                    "X-REQUEST-ID": ae.uuid,
+                    "X-SIGNATURE": ae.signature,
+                    "Cache-Control": "no-cache",
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                    "Accept-Encoding": "gzip",
+                    "user-agent": n
+                  },
+                  body: ae.body
                 };
-                $.post(al, function () {
-                  var an = i(g().mark(function ap(aq, ar, as) {
-                    return g().wrap(function (av) {
+                $.post(aj, function () {
+                  var al = i(g().mark(function am(an, ao, ap) {
+                    return g().wrap(function (ar) {
                       for (;;) {
-                        switch (av.prev = av.next) {
+                        switch (ar.prev = ar.next) {
                           case 0:
                             try {
-                              aq ? (console.log("".concat(JSON.stringify(aq))), console.log("".concat($.name, " API请求失败，请检查网路重试"))) : ai(JSON.parse(as));
-                            } catch (ay) {
-                              $.logErr(ay, ar);
+                              an ? (console.log("".concat(JSON.stringify(an))), console.log("".concat($.name, " API请求失败，请检查网路重试"))) : ah(JSON.parse(ap));
+                            } catch (av) {
+                              $.logErr(av, ao);
                             } finally {
-                              ai();
+                              ah();
                             }
                           case 1:
                           case "end":
-                            return av.stop();
+                            return ar.stop();
                         }
                       }
-                    }, ap);
+                    }, am);
                   }));
-                  return function (aq, ar, as) {
-                    return an.apply(this, arguments);
+                  return function (an, ao, ap) {
+                    return al.apply(this, arguments);
                   };
                 }());
               }));
             case 2:
             case "end":
-              return ag.stop();
+              return af.stop();
           }
         }
       }, ac);
@@ -946,428 +952,26 @@ const notify = $.isNode() ? require("../sendNotify") : "";
   }
   function H() {
     H = i(g().mark(function ac(ad) {
-      var af;
-      return g().wrap(function (ag) {
-        for (;;) {
-          switch (ag.prev = ag.next) {
-            case 0:
-              af = a2(ad);
-              return ag.abrupt("return", new Promise(function (ai) {
-                var aj = {
-                  Connection: "Keep-Alive",
-                  "X-TIMESTAMP": af.time,
-                  "X-SESSION-ID": x,
-                  "X-REQUEST-ID": af.uuid,
-                  "X-SIGNATURE": af.signature,
-                  "X-TENANT-ID": m,
-                  "X-ACCOUNT-ID": t,
-                  "Cache-Control": "no-cache",
-                  "Accept-Encoding": "gzip",
-                  "user-agent": o
-                };
-                var ak = {
-                  url: "https://vapp.taizhou.com.cn".concat(ad),
-                  headers: aj
-                };
-                $.get(ak, function () {
-                  var am = i(g().mark(function an(ao, ap, aq) {
-                    return g().wrap(function (ar) {
-                      for (;;) {
-                        switch (ar.prev = ar.next) {
-                          case 0:
-                            if (ar.prev = 0, !ao) {
-                              ar.next = 6;
-                              break;
-                            }
-                            console.log("".concat(JSON.stringify(ao)));
-                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ar.next = 9;
-                            break;
-                          case 6:
-                            ar.next = 8;
-                            return $.wait(2000);
-                          case 8:
-                            ai(JSON.parse(aq));
-                          case 9:
-                            ar.next = 14;
-                            break;
-                          case 11:
-                            ar.prev = 11;
-                            ar.t0 = ar.catch(0);
-                            $.logErr(ar.t0, ap);
-                          case 14:
-                            ar.prev = 14;
-                            ai();
-                            return ar.finish(14);
-                          case 17:
-                          case "end":
-                            return ar.stop();
-                        }
-                      }
-                    }, an, null, [[0, 11, 14, 17]]);
-                  }));
-                  return function (ao, ap, aq) {
-                    return am.apply(this, arguments);
-                  };
-                }());
-              }));
-            case 2:
-            case "end":
-              return ag.stop();
-          }
-        }
-      }, ac);
-    }));
-    return H.apply(this, arguments);
-  }
-  function I(ab, ac) {
-    return J.apply(this, arguments);
-  }
-  function J() {
-    J = i(g().mark(function ac(ad, ae) {
-      var ag;
-      return g().wrap(function (ah) {
-        for (;;) {
-          switch (ah.prev = ah.next) {
-            case 0:
-              ag = a2(ad);
-              return ah.abrupt("return", new Promise(function (aj) {
-                var ak = {
-                  Connection: "Keep-Alive",
-                  "X-TIMESTAMP": ag.time,
-                  "X-SESSION-ID": x,
-                  "X-REQUEST-ID": ag.uuid,
-                  "X-SIGNATURE": ag.signature,
-                  "X-TENANT-ID": m,
-                  "X-ACCOUNT-ID": t,
-                  "Cache-Control": "no-cache",
-                  "Accept-Encoding": "gzip",
-                  "user-agent": o
-                };
-                var al = {
-                  url: "https://vapp.taizhou.com.cn".concat(ad),
-                  headers: ak,
-                  body: ae
-                };
-                $.post(al, function () {
-                  var an = i(g().mark(function ao(ap, aq, ar) {
-                    return g().wrap(function (at) {
-                      for (;;) {
-                        switch (at.prev = at.next) {
-                          case 0:
-                            if (at.prev = 0, !ap) {
-                              at.next = 6;
-                              break;
-                            }
-                            console.log("".concat(JSON.stringify(ap)));
-                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            at.next = 9;
-                            break;
-                          case 6:
-                            at.next = 8;
-                            return $.wait(2000);
-                          case 8:
-                            aj(JSON.parse(ar));
-                          case 9:
-                            at.next = 14;
-                            break;
-                          case 11:
-                            at.prev = 11;
-                            at.t0 = at.catch(0);
-                            $.logErr(at.t0, aq);
-                          case 14:
-                            at.prev = 14;
-                            aj();
-                            return at.finish(14);
-                          case 17:
-                          case "end":
-                            return at.stop();
-                        }
-                      }
-                    }, ao, null, [[0, 11, 14, 17]]);
-                  }));
-                  return function (ap, aq, ar) {
-                    return an.apply(this, arguments);
-                  };
-                }());
-              }));
-            case 2:
-            case "end":
-              return ah.stop();
-          }
-        }
-      }, ac);
-    }));
-    return J.apply(this, arguments);
-  }
-  function K(ab) {
-    return L.apply(this, arguments);
-  }
-  function L() {
-    L = i(g().mark(function ac(ad) {
+      var ae;
       return g().wrap(function (af) {
         for (;;) {
           switch (af.prev = af.next) {
             case 0:
-              return af.abrupt("return", new Promise(function (ag) {
-                var ai = {
-                  url: "https://xmt.taizhou.com.cn".concat(ad),
-                  headers: {
-                    Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    Cookie: q,
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                  }
-                };
-                $.get(ai, function () {
-                  var ak = i(g().mark(function al(am, an, ao) {
-                    return g().wrap(function (ap) {
-                      for (;;) {
-                        switch (ap.prev = ap.next) {
-                          case 0:
-                            if (ap.prev = 0, !am) {
-                              ap.next = 6;
-                              break;
-                            }
-                            console.log("".concat(JSON.stringify(am)));
-                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ap.next = 16;
-                            break;
-                          case 6:
-                            ap.next = 8;
-                            return $.wait(2000);
-                          case 8:
-                            if (200 == JSON.parse(ao).code) {
-                              ap.next = 13;
-                              break;
-                            }
-                            console.log(JSON.parse(ao).msg);
-                            y += "用户：".concat(u, " ").concat(JSON.parse(ao).msg, "\n");
-                            ag("");
-                            return ap.abrupt("return");
-                          case 13:
-                            q = $.isNode() ? an.headers["set-cookie"][0] : an.headers["set-cookie"] || an.headers["Set-Cookie"];
-                            q = q.split(";")[0];
-                            ag(q);
-                          case 16:
-                            ap.next = 21;
-                            break;
-                          case 18:
-                            ap.prev = 18;
-                            ap.t0 = ap.catch(0);
-                            $.logErr(ap.t0, an);
-                          case 21:
-                            ap.prev = 21;
-                            ag();
-                            return ap.finish(21);
-                          case 24:
-                          case "end":
-                            return ap.stop();
-                        }
-                      }
-                    }, al, null, [[0, 18, 21, 24]]);
-                  }));
-                  return function (am, an, ao) {
-                    return ak.apply(this, arguments);
-                  };
-                }());
-              }));
-            case 1:
-            case "end":
-              return af.stop();
-          }
-        }
-      }, ac);
-    }));
-    return L.apply(this, arguments);
-  }
-  function M(ab) {
-    return N.apply(this, arguments);
-  }
-  function N() {
-    N = i(g().mark(function ac(ad) {
-      return g().wrap(function (ag) {
-        for (;;) {
-          switch (ag.prev = ag.next) {
-            case 0:
-              return ag.abrupt("return", new Promise(function (ai) {
-                var aj = {
-                  url: "https://xmt.taizhou.com.cn".concat(ad),
-                  headers: {
-                    Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    Cookie: q,
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                  }
-                };
-                $.get(aj, function () {
-                  var al = i(g().mark(function am(an, ao, ap) {
-                    return g().wrap(function (ar) {
-                      for (;;) {
-                        switch (ar.prev = ar.next) {
-                          case 0:
-                            if (ar.prev = 0, !an) {
-                              ar.next = 6;
-                              break;
-                            }
-                            console.log("".concat(JSON.stringify(an)));
-                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ar.next = 9;
-                            break;
-                          case 6:
-                            ar.next = 8;
-                            return $.wait(2000);
-                          case 8:
-                            ai(JSON.parse(ap));
-                          case 9:
-                            ar.next = 14;
-                            break;
-                          case 11:
-                            ar.prev = 11;
-                            ar.t0 = ar.catch(0);
-                            $.logErr(ar.t0, ao);
-                          case 14:
-                            ar.prev = 14;
-                            ai();
-                            return ar.finish(14);
-                          case 17:
-                          case "end":
-                            return ar.stop();
-                        }
-                      }
-                    }, am, null, [[0, 11, 14, 17]]);
-                  }));
-                  return function (an, ao, ap) {
-                    return al.apply(this, arguments);
-                  };
-                }());
-              }));
-            case 1:
-            case "end":
-              return ag.stop();
-          }
-        }
-      }, ac);
-    }));
-    return N.apply(this, arguments);
-  }
-  function O(ab) {
-    return P.apply(this, arguments);
-  }
-  function P() {
-    P = i(g().mark(function ac(ad) {
-      return g().wrap(function (af) {
-        for (;;) {
-          switch (af.prev = af.next) {
-            case 0:
+              ae = a2(ad);
               return af.abrupt("return", new Promise(function (ah) {
-                var aj = {
-                  url: "https://srv-app.taizhou.com.cn".concat(ad),
-                  headers: {
-                    Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    cookie: s,
-                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                  }
-                };
-                $.get(aj, function () {
-                  var al = i(g().mark(function am(an, ao, ap) {
-                    return g().wrap(function (ar) {
-                      for (;;) {
-                        switch (ar.prev = ar.next) {
-                          case 0:
-                            if (ar.prev = 0, !an) {
-                              ar.next = 6;
-                              break;
-                            }
-                            console.log("".concat(JSON.stringify(an)));
-                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ar.next = 11;
-                            break;
-                          case 6:
-                            ar.next = 8;
-                            return $.wait(2000);
-                          case 8:
-                            s = $.isNode() ? ao.headers["set-cookie"][0] : ao.headers["set-cookie"] || ao.headers["Set-Cookie"];
-                            s = s.split(";")[0];
-                            ah(s);
-                          case 11:
-                            ar.next = 16;
-                            break;
-                          case 13:
-                            ar.prev = 13;
-                            ar.t0 = ar.catch(0);
-                            $.logErr(ar.t0, ao);
-                          case 16:
-                            ar.prev = 16;
-                            ah();
-                            return ar.finish(16);
-                          case 19:
-                          case "end":
-                            return ar.stop();
-                        }
-                      }
-                    }, am, null, [[0, 13, 16, 19]]);
-                  }));
-                  return function (an, ao, ap) {
-                    return al.apply(this, arguments);
-                  };
-                }());
-              }));
-            case 1:
-            case "end":
-              return af.stop();
-          }
-        }
-      }, ac);
-    }));
-    return P.apply(this, arguments);
-  }
-  function Q(ab) {
-    return R.apply(this, arguments);
-  }
-  function R() {
-    R = i(g().mark(function ac(ad) {
-      return g().wrap(function (ae) {
-        for (;;) {
-          switch (ae.prev = ae.next) {
-            case 0:
-              return ae.abrupt("return", new Promise(function (ag) {
                 var ai = {
-                  url: "https://srv-app.taizhou.com.cn".concat(ad),
+                  url: "https://vapp.taizhou.com.cn".concat(ad),
                   headers: {
                     Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    cookie: s,
-                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                    "X-TIMESTAMP": ae.time,
+                    "X-SESSION-ID": x,
+                    "X-REQUEST-ID": ae.uuid,
+                    "X-SIGNATURE": ae.signature,
+                    "X-TENANT-ID": m,
+                    "X-ACCOUNT-ID": t,
+                    "Cache-Control": "no-cache",
+                    "Accept-Encoding": "gzip",
+                    "user-agent": o
                   }
                 };
                 $.get(ai, function () {
@@ -1388,7 +992,7 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                             aq.next = 8;
                             return $.wait(2000);
                           case 8:
-                            ag(JSON.parse(ao));
+                            ah(JSON.parse(ao));
                           case 9:
                             aq.next = 14;
                             break;
@@ -1398,7 +1002,7 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                             $.logErr(aq.t0, an);
                           case 14:
                             aq.prev = 14;
-                            ag();
+                            ah();
                             return aq.finish(14);
                           case 17:
                           case "end":
@@ -1412,76 +1016,76 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                   };
                 }());
               }));
-            case 1:
+            case 2:
             case "end":
-              return ae.stop();
+              return af.stop();
           }
         }
       }, ac);
     }));
-    return R.apply(this, arguments);
+    return H.apply(this, arguments);
   }
-  function S(ab, ac) {
-    return T.apply(this, arguments);
+  function I(ab, ac) {
+    return J.apply(this, arguments);
   }
-  function T() {
-    T = i(g().mark(function ad(ae, af) {
+  function J() {
+    J = i(g().mark(function ac(ad, ae) {
+      var ag;
       return g().wrap(function (ah) {
         for (;;) {
           switch (ah.prev = ah.next) {
             case 0:
+              ag = a2(ad);
               return ah.abrupt("return", new Promise(function (ai) {
                 var ak = {
-                  url: "https://srv-app.taizhou.com.cn".concat(ae),
+                  url: "https://vapp.taizhou.com.cn".concat(ad),
                   headers: {
                     Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    "Content-type": "application/x-www-form-urlencoded",
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    cookie: s,
-                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                    "X-TIMESTAMP": ag.time,
+                    "X-SESSION-ID": x,
+                    "X-REQUEST-ID": ag.uuid,
+                    "X-SIGNATURE": ag.signature,
+                    "X-TENANT-ID": m,
+                    "X-ACCOUNT-ID": t,
+                    "Cache-Control": "no-cache",
+                    "Accept-Encoding": "gzip",
+                    "user-agent": o
                   },
-                  body: af
+                  body: ae
                 };
                 $.post(ak, function () {
                   var am = i(g().mark(function an(ao, ap, aq) {
-                    return g().wrap(function (ar) {
+                    return g().wrap(function (as) {
                       for (;;) {
-                        switch (ar.prev = ar.next) {
+                        switch (as.prev = as.next) {
                           case 0:
-                            if (ar.prev = 0, !ao) {
-                              ar.next = 6;
+                            if (as.prev = 0, !ao) {
+                              as.next = 6;
                               break;
                             }
                             console.log("".concat(JSON.stringify(ao)));
                             console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ar.next = 9;
+                            as.next = 9;
                             break;
                           case 6:
-                            ar.next = 8;
+                            as.next = 8;
                             return $.wait(2000);
                           case 8:
                             ai(JSON.parse(aq));
                           case 9:
-                            ar.next = 14;
+                            as.next = 14;
                             break;
                           case 11:
-                            ar.prev = 11;
-                            ar.t0 = ar.catch(0);
-                            $.logErr(ar.t0, ap);
+                            as.prev = 11;
+                            as.t0 = as.catch(0);
+                            $.logErr(as.t0, ap);
                           case 14:
-                            ar.prev = 14;
+                            as.prev = 14;
                             ai();
-                            return ar.finish(14);
+                            return as.finish(14);
                           case 17:
                           case "end":
-                            return ar.stop();
+                            return as.stop();
                         }
                       }
                     }, an, null, [[0, 11, 14, 17]]);
@@ -1491,52 +1095,53 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                   };
                 }());
               }));
-            case 1:
+            case 2:
             case "end":
               return ah.stop();
           }
         }
-      }, ad);
+      }, ac);
     }));
-    return T.apply(this, arguments);
+    return J.apply(this, arguments);
   }
-  function U(ab) {
-    return V.apply(this, arguments);
+  function K(ab) {
+    return L.apply(this, arguments);
   }
-  function V() {
-    V = i(g().mark(function ac(ad) {
-      return g().wrap(function (af) {
+  function L() {
+    L = i(g().mark(function ac(ad) {
+      return g().wrap(function (ae) {
         for (;;) {
-          switch (af.prev = af.next) {
+          switch (ae.prev = ae.next) {
             case 0:
-              return af.abrupt("return", new Promise(function (ag) {
+              return ae.abrupt("return", new Promise(function (ag) {
                 var ai = {
-                  url: "https://srv2.taizhou.com.cn".concat(ad),
-                  headers: {
-                    Connection: "Keep-Alive",
-                    Accept: "*/*",
-                    Cookie: r,
-                    "Sec-Fetch-Site": "same-origin",
-                    "Sec-Fetch-Mode": "cors",
-                    "Sec-Fetch-Dest": "empty",
-                    Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
-                    "X-Requested-With": "com.shangc.tiennews.taizhou",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                  }
+                  Connection: "Keep-Alive",
+                  Accept: "*/*",
+                  Cookie: q,
+                  "Sec-Fetch-Site": "same-origin",
+                  "Sec-Fetch-Mode": "cors",
+                  "Sec-Fetch-Dest": "empty",
+                  Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
+                  "X-Requested-With": "com.shangc.tiennews.taizhou",
+                  "Accept-Encoding": "gzip, deflate",
+                  "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                  "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
                 };
-                $.get(ai, function () {
-                  var ak = i(g().mark(function al(am, an, ao) {
+                var aj = {
+                  url: "https://xmt.taizhou.com.cn".concat(ad),
+                  headers: ai
+                };
+                $.get(aj, function () {
+                  var al = i(g().mark(function am(an, ao, ap) {
                     return g().wrap(function (aq) {
                       for (;;) {
                         switch (aq.prev = aq.next) {
                           case 0:
-                            if (aq.prev = 0, !am) {
+                            if (aq.prev = 0, !an) {
                               aq.next = 6;
                               break;
                             }
-                            console.log("".concat(JSON.stringify(am)));
+                            console.log("".concat(JSON.stringify(an)));
                             console.log("".concat($.name, " API请求失败，请检查网路重试"));
                             aq.next = 16;
                             break;
@@ -1544,25 +1149,25 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                             aq.next = 8;
                             return $.wait(2000);
                           case 8:
-                            if (200 == JSON.parse(ao).code) {
+                            if (200 == JSON.parse(ap).code) {
                               aq.next = 13;
                               break;
                             }
-                            console.log(JSON.parse(ao).msg);
-                            y += "用户：".concat(u, " ").concat(JSON.parse(ao).msg, "\n");
+                            console.log(JSON.parse(ap).msg);
+                            y += "用户：".concat(u, " ").concat(JSON.parse(ap).msg, "\n");
                             ag("");
                             return aq.abrupt("return");
                           case 13:
-                            r = $.isNode() ? an.headers["set-cookie"][0] || an.headers["Set-Cookie"][0] : an.headers["set-cookie"] || an.headers["Set-Cookie"];
-                            r = r.split(";")[0];
-                            ag(r);
+                            q = $.isNode() ? ao.headers["set-cookie"][0] : ao.headers["set-cookie"] || ao.headers["Set-Cookie"];
+                            q = q.split(";")[0];
+                            ag(q);
                           case 16:
                             aq.next = 21;
                             break;
                           case 18:
                             aq.prev = 18;
                             aq.t0 = aq.catch(0);
-                            $.logErr(aq.t0, an);
+                            $.logErr(aq.t0, ao);
                           case 21:
                             aq.prev = 21;
                             ag();
@@ -1572,48 +1177,47 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                             return aq.stop();
                         }
                       }
-                    }, al, null, [[0, 18, 21, 24]]);
+                    }, am, null, [[0, 18, 21, 24]]);
                   }));
-                  return function (am, an, ao) {
-                    return ak.apply(this, arguments);
+                  return function (an, ao, ap) {
+                    return al.apply(this, arguments);
                   };
                 }());
               }));
             case 1:
             case "end":
-              return af.stop();
+              return ae.stop();
           }
         }
       }, ac);
     }));
-    return V.apply(this, arguments);
+    return L.apply(this, arguments);
   }
-  function W(ab) {
-    return X.apply(this, arguments);
+  function M(ab) {
+    return N.apply(this, arguments);
   }
-  function X() {
-    X = i(g().mark(function ac(ad) {
-      return g().wrap(function (af) {
+  function N() {
+    N = i(g().mark(function ad(ae) {
+      return g().wrap(function (ag) {
         for (;;) {
-          switch (af.prev = af.next) {
+          switch (ag.prev = ag.next) {
             case 0:
-              return af.abrupt("return", new Promise(function (ah) {
-                var ai = {
-                  Connection: "Keep-Alive",
-                  Accept: "*/*",
-                  Cookie: r,
-                  "Sec-Fetch-Site": "same-origin",
-                  "Sec-Fetch-Mode": "cors",
-                  "Sec-Fetch-Dest": "empty",
-                  Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
-                  "X-Requested-With": "com.shangc.tiennews.taizhou",
-                  "Accept-Encoding": "gzip, deflate",
-                  "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-                  "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                };
+              return ag.abrupt("return", new Promise(function (ah) {
                 var aj = {
-                  url: "https://srv2.taizhou.com.cn".concat(ad),
-                  headers: ai
+                  url: "https://xmt.taizhou.com.cn".concat(ae),
+                  headers: {
+                    Connection: "Keep-Alive",
+                    Accept: "*/*",
+                    Cookie: q,
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Dest": "empty",
+                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
+                    "X-Requested-With": "com.shangc.tiennews.taizhou",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                  }
                 };
                 $.get(aj, function () {
                   var al = i(g().mark(function am(an, ao, ap) {
@@ -1659,42 +1263,40 @@ const notify = $.isNode() ? require("../sendNotify") : "";
               }));
             case 1:
             case "end":
-              return af.stop();
+              return ag.stop();
           }
         }
-      }, ac);
+      }, ad);
     }));
-    return X.apply(this, arguments);
+    return N.apply(this, arguments);
   }
-  function Y(ab, ac) {
-    return Z.apply(this, arguments);
+  function O(ab) {
+    return P.apply(this, arguments);
   }
-  function Z() {
-    Z = i(g().mark(function ab(ac, ad) {
-      return g().wrap(function (af) {
+  function P() {
+    P = i(g().mark(function ac(ad) {
+      return g().wrap(function (ae) {
         for (;;) {
-          switch (af.prev = af.next) {
+          switch (ae.prev = ae.next) {
             case 0:
-              return af.abrupt("return", new Promise(function (ag) {
+              return ae.abrupt("return", new Promise(function (ag) {
                 var ai = {
-                  url: "https://srv2.taizhou.com.cn".concat(ac),
+                  url: "https://srv-app.taizhou.com.cn".concat(ad),
                   headers: {
                     Connection: "Keep-Alive",
                     Accept: "*/*",
-                    Cookie: r,
-                    "content-type": "application/x-www-form-urlencoded",
                     "Sec-Fetch-Site": "same-origin",
                     "Sec-Fetch-Mode": "cors",
                     "Sec-Fetch-Dest": "empty",
-                    Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
+                    cookie: s,
+                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
                     "X-Requested-With": "com.shangc.tiennews.taizhou",
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
                     "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
-                  },
-                  body: ad
+                  }
                 };
-                $.post(ai, function () {
+                $.get(ai, function () {
                   var ak = i(g().mark(function al(am, an, ao) {
                     return g().wrap(function (ap) {
                       for (;;) {
@@ -1706,27 +1308,352 @@ const notify = $.isNode() ? require("../sendNotify") : "";
                             }
                             console.log("".concat(JSON.stringify(am)));
                             console.log("".concat($.name, " API请求失败，请检查网路重试"));
-                            ap.next = 9;
+                            ap.next = 11;
                             break;
                           case 6:
                             ap.next = 8;
                             return $.wait(2000);
                           case 8:
-                            ag(JSON.parse(ao));
-                          case 9:
-                            ap.next = 14;
-                            break;
+                            s = $.isNode() ? an.headers["set-cookie"][0] : an.headers["set-cookie"] || an.headers["Set-Cookie"];
+                            s = s.split(";")[0];
+                            ag(s);
                           case 11:
-                            ap.prev = 11;
+                            ap.next = 16;
+                            break;
+                          case 13:
+                            ap.prev = 13;
                             ap.t0 = ap.catch(0);
                             $.logErr(ap.t0, an);
-                          case 14:
-                            ap.prev = 14;
+                          case 16:
+                            ap.prev = 16;
                             ag();
-                            return ap.finish(14);
-                          case 17:
+                            return ap.finish(16);
+                          case 19:
                           case "end":
                             return ap.stop();
+                        }
+                      }
+                    }, al, null, [[0, 13, 16, 19]]);
+                  }));
+                  return function (am, an, ao) {
+                    return ak.apply(this, arguments);
+                  };
+                }());
+              }));
+            case 1:
+            case "end":
+              return ae.stop();
+          }
+        }
+      }, ac);
+    }));
+    return P.apply(this, arguments);
+  }
+  function Q(ab) {
+    return R.apply(this, arguments);
+  }
+  function R() {
+    R = i(g().mark(function ac(ad) {
+      return g().wrap(function (ae) {
+        for (;;) {
+          switch (ae.prev = ae.next) {
+            case 0:
+              return ae.abrupt("return", new Promise(function (ag) {
+                var ai = {
+                  Connection: "Keep-Alive",
+                  Accept: "*/*",
+                  "Sec-Fetch-Site": "same-origin",
+                  "Sec-Fetch-Mode": "cors",
+                  "Sec-Fetch-Dest": "empty",
+                  cookie: s,
+                  Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
+                  "X-Requested-With": "com.shangc.tiennews.taizhou",
+                  "Accept-Encoding": "gzip, deflate",
+                  "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                  "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                };
+                var aj = {
+                  url: "https://srv-app.taizhou.com.cn".concat(ad),
+                  headers: ai
+                };
+                $.get(aj, function () {
+                  var al = i(g().mark(function am(an, ao, ap) {
+                    return g().wrap(function (aq) {
+                      for (;;) {
+                        switch (aq.prev = aq.next) {
+                          case 0:
+                            if (aq.prev = 0, !an) {
+                              aq.next = 6;
+                              break;
+                            }
+                            console.log("".concat(JSON.stringify(an)));
+                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
+                            aq.next = 9;
+                            break;
+                          case 6:
+                            aq.next = 8;
+                            return $.wait(2000);
+                          case 8:
+                            ag(JSON.parse(ap));
+                          case 9:
+                            aq.next = 14;
+                            break;
+                          case 11:
+                            aq.prev = 11;
+                            aq.t0 = aq.catch(0);
+                            $.logErr(aq.t0, ao);
+                          case 14:
+                            aq.prev = 14;
+                            ag();
+                            return aq.finish(14);
+                          case 17:
+                          case "end":
+                            return aq.stop();
+                        }
+                      }
+                    }, am, null, [[0, 11, 14, 17]]);
+                  }));
+                  return function (an, ao, ap) {
+                    return al.apply(this, arguments);
+                  };
+                }());
+              }));
+            case 1:
+            case "end":
+              return ae.stop();
+          }
+        }
+      }, ac);
+    }));
+    return R.apply(this, arguments);
+  }
+  function S(ab, ac) {
+    return T.apply(this, arguments);
+  }
+  function T() {
+    T = i(g().mark(function ac(ad, ae) {
+      return g().wrap(function (ag) {
+        for (;;) {
+          switch (ag.prev = ag.next) {
+            case 0:
+              return ag.abrupt("return", new Promise(function (ai) {
+                var ak = {
+                  url: "https://srv-app.taizhou.com.cn".concat(ad),
+                  headers: {
+                    Connection: "Keep-Alive",
+                    Accept: "*/*",
+                    "Content-type": "application/x-www-form-urlencoded",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Dest": "empty",
+                    cookie: s,
+                    Referer: "https://xmt.taizhou.com.cn/readingLuck-v1/",
+                    "X-Requested-With": "com.shangc.tiennews.taizhou",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                  },
+                  body: ae
+                };
+                $.post(ak, function () {
+                  var am = i(g().mark(function an(ao, ap, aq) {
+                    return g().wrap(function (ar) {
+                      for (;;) {
+                        switch (ar.prev = ar.next) {
+                          case 0:
+                            if (ar.prev = 0, !ao) {
+                              ar.next = 6;
+                              break;
+                            }
+                            console.log("".concat(JSON.stringify(ao)));
+                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
+                            ar.next = 9;
+                            break;
+                          case 6:
+                            ar.next = 8;
+                            return $.wait(2000);
+                          case 8:
+                            ai(JSON.parse(aq));
+                          case 9:
+                            ar.next = 14;
+                            break;
+                          case 11:
+                            ar.prev = 11;
+                            ar.t0 = ar.catch(0);
+                            $.logErr(ar.t0, ap);
+                          case 14:
+                            ar.prev = 14;
+                            ai();
+                            return ar.finish(14);
+                          case 17:
+                          case "end":
+                            return ar.stop();
+                        }
+                      }
+                    }, an, null, [[0, 11, 14, 17]]);
+                  }));
+                  return function (ao, ap, aq) {
+                    return am.apply(this, arguments);
+                  };
+                }());
+              }));
+            case 1:
+            case "end":
+              return ag.stop();
+          }
+        }
+      }, ac);
+    }));
+    return T.apply(this, arguments);
+  }
+  function U(ab) {
+    return V.apply(this, arguments);
+  }
+  function V() {
+    V = i(g().mark(function ac(ad) {
+      return g().wrap(function (af) {
+        for (;;) {
+          switch (af.prev = af.next) {
+            case 0:
+              return af.abrupt("return", new Promise(function (ah) {
+                var aj = {
+                  Connection: "Keep-Alive",
+                  Accept: "*/*",
+                  Cookie: r,
+                  "Sec-Fetch-Site": "same-origin",
+                  "Sec-Fetch-Mode": "cors",
+                  "Sec-Fetch-Dest": "empty",
+                  Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
+                  "X-Requested-With": "com.shangc.tiennews.taizhou",
+                  "Accept-Encoding": "gzip, deflate",
+                  "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                  "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                };
+                var ak = {
+                  url: "https://srv2.taizhou.com.cn".concat(ad),
+                  headers: aj
+                };
+                $.get(ak, function () {
+                  var am = i(g().mark(function an(ao, ap, aq) {
+                    return g().wrap(function (as) {
+                      for (;;) {
+                        switch (as.prev = as.next) {
+                          case 0:
+                            if (as.prev = 0, !ao) {
+                              as.next = 6;
+                              break;
+                            }
+                            console.log("".concat(JSON.stringify(ao)));
+                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
+                            as.next = 16;
+                            break;
+                          case 6:
+                            as.next = 8;
+                            return $.wait(2000);
+                          case 8:
+                            if (200 == JSON.parse(aq).code) {
+                              as.next = 13;
+                              break;
+                            }
+                            console.log(JSON.parse(aq).msg);
+                            y += "用户：".concat(u, " ").concat(JSON.parse(aq).msg, "\n");
+                            ah("");
+                            return as.abrupt("return");
+                          case 13:
+                            r = $.isNode() ? ap.headers["set-cookie"][0] || ap.headers["Set-Cookie"][0] : ap.headers["set-cookie"] || ap.headers["Set-Cookie"];
+                            r = r.split(";")[0];
+                            ah(r);
+                          case 16:
+                            as.next = 21;
+                            break;
+                          case 18:
+                            as.prev = 18;
+                            as.t0 = as.catch(0);
+                            $.logErr(as.t0, ap);
+                          case 21:
+                            as.prev = 21;
+                            ah();
+                            return as.finish(21);
+                          case 24:
+                          case "end":
+                            return as.stop();
+                        }
+                      }
+                    }, an, null, [[0, 18, 21, 24]]);
+                  }));
+                  return function (ao, ap, aq) {
+                    return am.apply(this, arguments);
+                  };
+                }());
+              }));
+            case 1:
+            case "end":
+              return af.stop();
+          }
+        }
+      }, ac);
+    }));
+    return V.apply(this, arguments);
+  }
+  function W(ab) {
+    return X.apply(this, arguments);
+  }
+  function X() {
+    X = i(g().mark(function ac(ad) {
+      return g().wrap(function (af) {
+        for (;;) {
+          switch (af.prev = af.next) {
+            case 0:
+              return af.abrupt("return", new Promise(function (ah) {
+                var ai = {
+                  url: "https://srv2.taizhou.com.cn".concat(ad),
+                  headers: {
+                    Connection: "Keep-Alive",
+                    Accept: "*/*",
+                    Cookie: r,
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Dest": "empty",
+                    Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
+                    "X-Requested-With": "com.shangc.tiennews.taizhou",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                    "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                  }
+                };
+                $.get(ai, function () {
+                  var ak = i(g().mark(function al(am, an, ao) {
+                    return g().wrap(function (aq) {
+                      for (;;) {
+                        switch (aq.prev = aq.next) {
+                          case 0:
+                            if (aq.prev = 0, !am) {
+                              aq.next = 6;
+                              break;
+                            }
+                            console.log("".concat(JSON.stringify(am)));
+                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
+                            aq.next = 9;
+                            break;
+                          case 6:
+                            aq.next = 8;
+                            return $.wait(2000);
+                          case 8:
+                            ah(JSON.parse(ao));
+                          case 9:
+                            aq.next = 14;
+                            break;
+                          case 11:
+                            aq.prev = 11;
+                            aq.t0 = aq.catch(0);
+                            $.logErr(aq.t0, an);
+                          case 14:
+                            aq.prev = 14;
+                            ah();
+                            return aq.finish(14);
+                          case 17:
+                          case "end":
+                            return aq.stop();
                         }
                       }
                     }, al, null, [[0, 11, 14, 17]]);
@@ -1741,7 +1668,87 @@ const notify = $.isNode() ? require("../sendNotify") : "";
               return af.stop();
           }
         }
-      }, ab);
+      }, ac);
+    }));
+    return X.apply(this, arguments);
+  }
+  function Y(ab, ac) {
+    return Z.apply(this, arguments);
+  }
+  function Z() {
+    Z = i(g().mark(function ac(ad, ae) {
+      return g().wrap(function (ag) {
+        for (;;) {
+          switch (ag.prev = ag.next) {
+            case 0:
+              return ag.abrupt("return", new Promise(function (ai) {
+                var ak = {
+                  Connection: "Keep-Alive",
+                  Accept: "*/*",
+                  Cookie: r,
+                  "content-type": "application/x-www-form-urlencoded",
+                  "Sec-Fetch-Site": "same-origin",
+                  "Sec-Fetch-Mode": "cors",
+                  "Sec-Fetch-Dest": "empty",
+                  Referer: "https://srv2.taizhou.com.cn/html/poetry-competition/",
+                  "X-Requested-With": "com.shangc.tiennews.taizhou",
+                  "Accept-Encoding": "gzip, deflate",
+                  "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                  "user-agent": "Mozilla/5.0 (Linux; Android 11; 21091116AC Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 Mobile Safari/537.36;xsb_wangchao;xsb_wangchao;6.0.2;native_app;6.10.0"
+                };
+                var al = {
+                  url: "https://srv2.taizhou.com.cn".concat(ad),
+                  headers: ak,
+                  body: ae
+                };
+                $.post(al, function () {
+                  var am = i(g().mark(function an(ao, ap, aq) {
+                    return g().wrap(function (as) {
+                      for (;;) {
+                        switch (as.prev = as.next) {
+                          case 0:
+                            if (as.prev = 0, !ao) {
+                              as.next = 6;
+                              break;
+                            }
+                            console.log("".concat(JSON.stringify(ao)));
+                            console.log("".concat($.name, " API请求失败，请检查网路重试"));
+                            as.next = 9;
+                            break;
+                          case 6:
+                            as.next = 8;
+                            return $.wait(2000);
+                          case 8:
+                            ai(JSON.parse(aq));
+                          case 9:
+                            as.next = 14;
+                            break;
+                          case 11:
+                            as.prev = 11;
+                            as.t0 = as.catch(0);
+                            $.logErr(as.t0, ap);
+                          case 14:
+                            as.prev = 14;
+                            ai();
+                            return as.finish(14);
+                          case 17:
+                          case "end":
+                            return as.stop();
+                        }
+                      }
+                    }, an, null, [[0, 11, 14, 17]]);
+                  }));
+                  return function (ao, ap, aq) {
+                    return am.apply(this, arguments);
+                  };
+                }());
+              }));
+            case 1:
+            case "end":
+              return ag.stop();
+          }
+        }
+      }, ac);
     }));
     return Z.apply(this, arguments);
   }
@@ -1750,21 +1757,22 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     return ac.doEncrypt(ab, "04A50803A27F000D6B310607EBA2A1C899E82872C0B538CA41DB6F0183B4C7E164DAFC6946ABF93C8AF1C0AD96D0E770D29264EF9F907DDBAE97A2A0BB1036D4AC", 1);
   }
   function a1() {
-    var aj = new (k.loadJSEncrypt())();
-    aj.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD6XO7e9YeAOs+cFqwa7ETJ+WXizPqQeXv68i5vqw9pFREsrqiBTRcg7wB0RIp3rJkDpaeVJLsZqYm5TW7FWx/iOiXFc+zCPvaKZric2dXCw27EvlH5rq+zwIPDAJHGAfnn1nmQH7wR3PCatEIb8pz5GFlTHMlluw4ZYmnOwg+thwIDAQAB");
-    v = aj.encrypt(v);
-    var ae = a3(),
-      af = "client_id=".concat(w, "&password=").concat(v, "&phone_number=").concat(u),
-      ag = "post%%/web/oauth/credential_auth?".concat(af, "%%").concat(ae, "%%");
-    af = "client_id=".concat(w, "&password=").concat(encodeURIComponent(v), "&phone_number=").concat(u);
+    var ab = new (k.loadJSEncrypt())();
+    ab.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD6XO7e9YeAOs+cFqwa7ETJ+WXizPqQeXv68i5vqw9pFREsrqiBTRcg7wB0RIp3rJkDpaeVJLsZqYm5TW7FWx/iOiXFc+zCPvaKZric2dXCw27EvlH5rq+zwIPDAJHGAfnn1nmQH7wR3PCatEIb8pz5GFlTHMlluw4ZYmnOwg+thwIDAQAB");
+    v = ab.encrypt(v);
+    var ac = a3(),
+      ad = "client_id=".concat(w, "&password=").concat(v, "&phone_number=").concat(u),
+      ae = "post%%/web/oauth/credential_auth?".concat(ad, "%%").concat(ac, "%%");
+    ad = "client_id=".concat(w, "&password=").concat(encodeURIComponent(v), "&phone_number=").concat(u);
     CryptoJS = k.createCryptoJS();
-    var ah = CryptoJS.HmacSHA256(ag, l),
-      ai = CryptoJS.enc.Hex.stringify(ah);
-    var ad = {};
-    ad.uuid = ae;
-    ad.signature = ai;
-    ad.body = af;
-    return ad;
+    var af = CryptoJS.HmacSHA256(ae, l),
+      ag = CryptoJS.enc.Hex.stringify(af),
+      ah = {
+        uuid: ac,
+        signature: ag,
+        body: ad
+      };
+    return ah;
   }
   function a2(ab) {
     var ac = a3(),
@@ -1831,26 +1839,26 @@ const notify = $.isNode() ? require("../sendNotify") : "";
             case 5:
               console.log("🚀 ".concat($.name, ": 开始下载Utils代码"));
               return af.abrupt("return", new Promise(function () {
-                var aj = i(g().mark(function ak(al) {
-                  return g().wrap(function an(ao) {
+                var ai = i(g().mark(function aj(ak) {
+                  return g().wrap(function al(am) {
                     for (;;) {
-                      switch (ao.prev = ao.next) {
+                      switch (am.prev = am.next) {
                         case 0:
-                          $.getScript("https://mirror.ghproxy.com/https://raw.githubusercontent.com/xzxxn777/Surge/main/Utils/Utils.js").then(function (ap) {
-                            $.setdata(ap, "Utils_Code");
-                            eval(ap);
+                          $.getScript("https://mirror.ghproxy.com/https://raw.githubusercontent.com/xzxxn777/Surge/main/Utils/Utils.js").then(function (ao) {
+                            $.setdata(ao, "Utils_Code");
+                            eval(ao);
                             console.log("✅ Utils加载成功, 请继续");
-                            al(creatUtils());
+                            ak(creatUtils());
                           });
                         case 1:
                         case "end":
-                          return ao.stop();
+                          return am.stop();
                       }
                     }
-                  }, ak);
+                  }, aj);
                 }));
-                return function (al) {
-                  return aj.apply(this, arguments);
+                return function (ak) {
+                  return ai.apply(this, arguments);
                 };
               }()));
             case 7:
@@ -1892,15 +1900,15 @@ const notify = $.isNode() ? require("../sendNotify") : "";
     return aa.apply(this, arguments);
   }
   i(g().mark(function ab() {
-    return g().wrap(function (ac) {
+    return g().wrap(function (ad) {
       for (;;) {
-        switch (ac.prev = ac.next) {
+        switch (ad.prev = ad.next) {
           case 0:
-            ac.next = 2;
+            ad.next = 2;
             return A();
           case 2:
           case "end":
-            return ac.stop();
+            return ad.stop();
         }
       }
     }, ab);
